@@ -20,7 +20,7 @@ function Layout() {
                         <Sidebar2 />
                         <SideBar1 />
                     </div>
-                    <div className="min-h-[100px] rounded-lg sm:col-span-9">
+                    <div className=" rounded-lg sm:col-span-9">
                         <InsuranceQuote />
                         <RecommendationDiv />
                         <ChooseYourBrand />

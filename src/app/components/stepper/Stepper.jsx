@@ -1,13 +1,87 @@
 "use client";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "../modal/Modal";
+import { useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
-import Stepper from "../3stepper/Stepper";
 
-// import HorizontalLinearStepper from "../stepper/Stepper";
-// import Modal from "../modal/modal";
+const steps = ["Vehicle Details", "Driver Details", "Get Quote"];
 
-function InsuranceQuote() {
+export default function HorizontalLinearStepper() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
+
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  //   insuranceQuote consts
+  const [data, setData] = useState({
+    model: "",
+    email: "",
+    password: "",
+    car_year: "",
+    brand: "",
+    variant: "",
+    brand1: "",
+    first_car: "",
+    city: "",
+    nationality: "",
+    country: "",
+    experience: "",
+    duration: "",
+    full_name: "",
+    dob: "",
+    mobile_number: "",
+  });
+
+  const makeRequest = (formData) => {
+    console.log("Form submitted", formData);
+  };
+  const handleNextStep = (newData, final = false) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    if (final) {
+      makeRequest(newData);
+      return;
+    }
+    setCurrentStep((prev) => prev + 1);
+  };
+  const handleNextStep2 = (newData, final = false) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    if (final) {
+      makeRequest(newData);
+      return;
+    }
+    setCurrentStep((prev) => prev + 1);
+  };
+  const handlePrevStep = (newData) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    setCurrentStep((prev) => prev - 1);
+  };
+  const [currentStep, setCurrentStep] = useState(0);
+
+  //   steps1,2 , validations
+
   // Step1ValidationSchema
   const stepOneValidationSchema = Yup.object({
     car_year: Yup.string().required().label("Car Year"),
@@ -16,7 +90,7 @@ function InsuranceQuote() {
   //StepOne
   const StepOne = (props) => {
     const handleSubmit = (values) => {
-      props.next(values, false);
+      props.next(values);
     };
     return (
       <Formik
@@ -25,9 +99,8 @@ function InsuranceQuote() {
         onSubmit={handleSubmit}
       >
         {(formikProps) => (
-          <Form className=" my-6 p-2">
-            <Stepper step={"step1"} />
-            <div className="m-4 grid gap-6 sm:grid-cols-12">
+          <Form className=" my-6 p-2 min-h-[500px]">
+            <div className="m-4 grid gap-4 sm:grid-cols-12">
               <div className="rounded-lg sm:col-span-6 sm:block">
                 <p>Car Year</p>
                 <Field
@@ -35,9 +108,7 @@ function InsuranceQuote() {
                   name="car_year"
                   placeholder="Choose Year"
                 />
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="car_year" />
-                </div>
+                <ErrorMessage name="car_year" className="text-red-500" />
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <p>Brand</p>
@@ -70,46 +141,7 @@ function InsuranceQuote() {
               {/* Row3 */}
               <div className="rounded-lg sm:col-span-6 sm:block">
                 <p>Is you car brand new ?</p>
-                <Field name="brand1"/>
-                <ul class="">
-                  <div className=" grid gap-4 sm:grid-cols-12">
-                    <div className=" rounded-lg sm:col-span-6 sm:block hidden">
-                      <li>
-                        <input
-                          type="radio"
-                          id="option-yes"
-                          name="hosting"
-                          value="option-yes"
-                          class="hidden peer"
-                          required
-                        />
-                        <label
-                          for="option-yes"
-                          class="inline-flex items-center text-center w-full p-3 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100"
-                        >
-                          <div class="w-full text-md text-center">Yes</div>
-                        </label>
-                      </li>
-                    </div>
-                    <div className="rounded-lg sm:col-span-6 sm:block hidden">
-                      <li>
-                        <input
-                          type="radio"
-                          id="option-no"
-                          name="hosting"
-                          value="option-no"
-                          class="hidden peer"
-                        />
-                        <label
-                          for="option-no"
-                          class="inline-flex items-center text-center w-full p-3 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100"
-                        >
-                          <div class="w-full text-md text-center">No</div>
-                        </label>
-                      </li>
-                    </div>
-                  </div>
-                </ul>
+                <Field name="brand1" placeholder="Choose Variant"></Field>
                 <ErrorMessage name="brand1" />
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block">
@@ -156,7 +188,7 @@ function InsuranceQuote() {
               </div>
             </div>
             <button
-              className="lg:w-auto w-full py-4 px-12 text-xs bg-blue-700 rounded-3xl sm:float-right text-white "
+              className=" py-4 px-12 text-xs m-2 bg-blue-700 rounded-3xl sm:float-right text-white "
               type="submit"
             >
               Continue
@@ -185,9 +217,8 @@ function InsuranceQuote() {
         onSubmit={handleSubmit}
       >
         {({ values }) => (
-          <Form className=" my-6 p-2 ">
-            <Stepper step={"step2"} />
-            <div className="m-4 grid gap-6 sm:grid-cols-12">
+          <Form className=" my-6 p-2">
+            <div className="m-4 grid gap-4 sm:grid-cols-12">
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <p>Nationality</p>
                 <Field
@@ -252,10 +283,7 @@ function InsuranceQuote() {
                   name="email"
                   placeholder=" email"
                 />
-                <div className="text-red-500">
-                  {" "}
-                  <ErrorMessage name="email" />
-                </div>
+                <ErrorMessage name="email" />
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <p>Date of Birth</p>
@@ -282,7 +310,7 @@ function InsuranceQuote() {
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <button
                   onClick={() => props.prev(values)}
-                  className=" lg:w-auto  w-full py-4 px-16 text-xs my-auto bg-blue-700 rounded-3xl sm:float-left text-white "
+                  className=" py-4 px-16 text-xs m-2  bg-blue-700 rounded-3xl sm:float-left text-white "
                   type="button"
                 >
                   Back
@@ -290,8 +318,7 @@ function InsuranceQuote() {
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <button
-                  // onClick={() => props.next(values, true)}
-                  className=" lg:w-auto  w-full py-4 px-12 text-xs my-auto bg-blue-700 rounded-3xl sm:float-right text-white "
+                  className=" py-4 px-12 text-xs m-2  bg-blue-700 rounded-3xl sm:float-right text-white "
                   type="submit"
                 >
                   Get Quote
@@ -304,60 +331,60 @@ function InsuranceQuote() {
     );
   };
 
-  const [data, setData] = useState({
-    model: "",
-    email: "",
-    password: "",
-    car_year: "",
-    brand: "",
-    variant: "",
-    brand1: "",
-    first_car: "",
-    city: "",
-    nationality: "",
-    country: "",
-    experience: "",
-    duration: "",
-    full_name: "",
-    dob: "",
-    mobile_number: "",
-  });
-
-  const makeRequest = (formData) => {
-    console.log(formData, "Form submitted");
-  };
-  const handleNextStep = (newData, final) => {
-    setData((prev) => ({ ...prev, ...newData }));
-    if (final) {
-      makeRequest(newData);
-      return;
-    }
-    setCurrentStep((prev) => prev + 1);
-  };
-
-  const handlePrevStep = (newData) => {
-    setData((prev) => ({ ...prev, ...newData }));
-    setCurrentStep((prev) => prev - 1);
-  };
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [
+  const formSteps = [
     <StepOne next={handleNextStep} data={data} />,
     <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />,
   ];
-  console.log(data, "Data");
   return (
-    <div className="border border-2 grey-500 rounded-xl">
-      <div className="p-6">
-        <div className="items-center justify-between">
-          <div className="text-xl text-center">Get Your Insurance Quote</div>
-          <div className="text-xl text-center">In A Few Clicks!</div>
-          {steps[currentStep]}
-        </div>
-      </div>
-      {/* //yesnodesign */}
-      {/* <ul class="grid w-full gap-6 md:grid-cols"> */}
-    </div>
+    <Box sx={{ width: "100%" }}>
+      <Stepper activeStep={activeStep}>
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+      {activeStep === steps.length - 1 ? (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            <Modal modal={"open"} />
+          </Typography>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
+          <div>{formSteps[activeStep]}</div>
+          {/* <div>{steps[activeStep]}</div> */}
+          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Back
+            </Button>
+            <Box sx={{ flex: "1 1 auto" }} />
+
+            <Button className="bg-blue-500 text-black" onClick={handleNext}>
+            {/* <Button className="bg-blue-500 text-black" onClick={handleNextStep}> */}
+              {/* {activeStep === steps.length - 1 ? 'finish' : 'Next'} */}
+              {activeStep === steps.length - 2
+                ? "Get Quote"
+                : activeStep === steps.length - 1
+                ? ""
+                : "Continue"}
+            </Button>
+          </Box>
+        </React.Fragment>
+      )}
+    </Box>
   );
 }
-
-export default InsuranceQuote;

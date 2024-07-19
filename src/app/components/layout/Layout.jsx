@@ -8,6 +8,7 @@ import DimensionSection from '../dimensionsSection/DimensionSection';
 import ComparisonSection from '../comparisonSection/ComparisonSection';
 import Sidebar2 from '../sidebar2/Sidebar2';
 import SideBar1 from '../sidebar1/Sidebar1';
+import HorizontalLinearStepper from '../stepper/Stepper';
 
 function Layout() {
     return (
@@ -22,6 +23,7 @@ function Layout() {
                     </div>
                     <div className=" rounded-lg sm:col-span-9">
                         <InsuranceQuote />
+                        {/* <HorizontalLinearStepper /> */}
                         <RecommendationDiv />
                         <ChooseYourBrand />
                         <DimensionSection />

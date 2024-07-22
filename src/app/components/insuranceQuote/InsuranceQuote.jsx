@@ -57,24 +57,35 @@ function InsuranceQuote() {
                   className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
                   name="car_year"
                   placeholder="Choose Year"
+                  // onfocus={type='date'}
+                  //  onblur="(this.type='text')"
                 />
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="car_year" />
                 </div>
               </div>
-              <div className=" rounded-lg sm:col-span-6 sm:block">
+              <div className=" rounded-lg sm:col-span-6 sm:block ">
                 <p className="text-sm font-medium my-2">Brand</p>
                 <Field
                   name="car_brand"
                   as="select"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                  placeholder="Choose Brand"
+                  // className="border-2   w-full text-xs"
+                  className="block w-full border-2 rounded-md radius-lg p-3 text-xs focus:bg-slate-50 focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-black"
                   // onChange={(e) => {
                   //   selectModel(e.target.value);
                   // }}
                 >
                   <option label="Choose Brand" value="" disabled />
                   {carData.Brands.map((brand) => {
-                    return <option key={brand} label={brand} value={brand} />;
+                    return (
+                      <option
+                        key={brand}
+                        label={brand}
+                        value={brand}
+                        className="bg-slate-50 "
+                      />
+                    );
                   })}
                 </Field>
                 <div className="text-red-500 text-xs">
@@ -132,16 +143,21 @@ function InsuranceQuote() {
                 <p className="text-sm font-medium my-2">
                   Is you car brand new ?
                 </p>
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="brand_new_car" value="Yes" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="brand_new_car"
+                    value="Yes"
+                    className="peer-checked:border-black appearance-none"
+                  />
                   Yes
                 </label>
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
                   <Field
                     type="radio"
                     name="brand_new_car"
                     value="No"
-                    className="peer-checked:border-black"
+                    className="peer-checked:border-black appearance-none"
                   />
                   No
                 </label>
@@ -154,13 +170,22 @@ function InsuranceQuote() {
                 <p className="text-sm font-medium my-2">
                   Are you buying you first car?
                 </p>
-                {/* <Field name="first_car" placeholder="Choose Variant" /> */}
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="first_car" value="Yes" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="first_car"
+                    value="Yes"
+                    className="appearance-none"
+                  />
                   Yes
                 </label>
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="first_car" value="No" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="first_car"
+                    value="No"
+                    className="appearance-none"
+                  />
                   No
                 </label>
                 <div className="text-red-500 text-xs">
@@ -189,9 +214,17 @@ function InsuranceQuote() {
                 </p>
                 <Field
                   name="city"
+                  as="select"
                   className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
                   placeholder="Choose City"
-                />
+                >
+                <option value="" defaultValue={""}>
+                  Choose City
+                </option>
+                {carData?.cities.map((city) => {
+                  return <option key={city} label={city} value={city} />;
+                })}
+                </Field>
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="city" />
                 </div>
@@ -202,12 +235,22 @@ function InsuranceQuote() {
                   Is this car GCC spec AND unmodified?
                 </p>
                 {/* <Field name="GCCspec" placeholder="Choose Variant" /> */}
-                <label class=" text-xs text-center inline-flex items-center w-56 mr-2 p-2 py-3 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="gcc_spec" value="Yes" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="gcc_spec"
+                    value="Yes"
+                    className="appearance-none"
+                  />
                   Yes
                 </label>
-                <label class=" inline-flex items-center text-center w-56 mr-2 p-2 py-3 text-xs text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="gcc_spec" value="No" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="gcc_spec"
+                    value="No"
+                    className="appearance-none"
+                  />
                   No
                 </label>
                 <div className="text-red-500 text-xs">
@@ -219,19 +262,22 @@ function InsuranceQuote() {
                   Is the current policy fully comprehensive?
                 </p>
                 {/* <Field name="last_name" placeholder="Choose Variant" /> */}
-                <label class=" py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
                   <Field
                     type="radio"
                     name="is_fully_comprehensive"
                     value="Yes"
+                    className="appearance-none"
                   />
                   Yes
                 </label>
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
                   <Field
                     type="radio"
                     name="is_fully_comprehensive"
                     value="No"
+                    class="hidden peer"
+                    className="appearance-none peer-checked:border-black"
                   />
                   No
                 </label>
@@ -243,12 +289,27 @@ function InsuranceQuote() {
                 <p className="text-sm font-medium my-2">
                   Does the current policy of this car include agency repair?
                 </p>
-                <label class=" py-3 text-xs  inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="agency_repair" value="Yes" />
+                {/* <label className=" py-3 text-xs  inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field type="radio" name="agency_repair" value="Yes" className="appearance-none"/>
+                  Yes
+                </label> */}
+                <label className=" text-gray-500 inline-flex w-56 mr-2  justify-center py-3 text-xs items-center rounded-lg  border-2">
+                  <Field
+                    type="radio"
+                    name="agency_repair"
+                    value="Yes"
+                    className="appearance-none"
+                  />
                   Yes
                 </label>
-                <label class="py-3 text-xs inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="agency_repair" value="No" />
+                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
+                  <Field
+                    type="radio"
+                    name="agency_repair"
+                    value="No"
+                    // class="hidden peer"
+                    className="appearance-none"
+                  />
                   No
                 </label>
                 <div className="text-red-500 text-xs">

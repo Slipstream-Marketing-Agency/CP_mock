@@ -26,4 +26,13 @@ export const carData = {
 
   country: ["India", "UAE", "Philipines", "Russia"],
   insurance: ["Fully comprehensive", "Third party"],
+  cities: [
+    "Abudhabi",
+    "Dubai",
+    "Sharjah",
+    "Fujairah",
+    "UmmAlQuwain",
+    "Ras Al Khaimah",
+    "Ajman",
+  ],
 };

@@ -9,6 +9,8 @@ import ComparisonSection from '../comparisonSection/ComparisonSection';
 import Sidebar2 from '../sidebar2/Sidebar2';
 import SideBar1 from '../sidebar1/Sidebar1';
 import HorizontalLinearStepper from '../stepper/Stepper';
+import Stepper2 from '../stepper2/Stepper2';
+
 
 function Layout() {
     return (
@@ -24,10 +26,14 @@ function Layout() {
                     <div className=" rounded-lg sm:col-span-9">
                         <InsuranceQuote />
                         {/* <HorizontalLinearStepper /> */}
+                        {/* <Stepper2 /> */}
+
                         <RecommendationDiv />
                         <ChooseYourBrand />
                         <DimensionSection />
                         <ComparisonSection />
+
+
                     </div>
                 </div>
             </div>

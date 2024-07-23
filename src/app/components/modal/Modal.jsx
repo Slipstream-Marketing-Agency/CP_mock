@@ -4,8 +4,8 @@ function Modal({ modal, setIsOpen }) {
     <>
       {modal && (
         <dialog className="fixed left-4 top-0 w-full h-full bg-black bg-opacity-20 z-10 overflow-auto backdrop-blur flex justify-center items-center">
-          <div className="bg-white rounded-md w-1/2 p-5">
-            <div className="grid sm:grid-cols-12">
+          <div className="bg-white rounded-md lg:w-1/4 w-1/2 p-5">
+            <div className=" grid sm:grid-cols-12">
               <div className="sm:col-span-2 sm:block hidden bg-green-200 rounded-full  w-12 h-12 align-middle  ">
                 <Image
                   src={"/icon-submitted.svg"}

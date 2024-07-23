@@ -1,44 +1,116 @@
 "use client";
+import Select from "react-select";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Stepper from "../3stepper/Stepper";
 import { carData } from "@/app/mocks/mock";
 import Modal from "../modal/Modal";
 // import HorizontalLinearStepper from "../stepper/Stepper";
+// import SelectComponent from "../selectComponent/selectComponent";
 
 function InsuranceQuote() {
   // const [brands, setBrand] = useState(carData.Brands);
   // const [selectedCarbrand, setSelectedCarbrand] = useState(carData.Brands);
   const [model, setModel] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptionBrand, setSelectedOptionBrand] = useState("");
+  const [errorOptionBrand, setErrorOptionBrand] = useState(false);
+  const [selectedOptionYear, setSelectedOptionYear] = useState("");
+  const [errorOptionYear, setErrorOptionYear] = useState(false);
+  const [selectedOptionModel, setSelectedOptionModel] = useState("");
+  const [errorOptionModel, setErrorOptionModel] = useState(false);
+  const [selectedOptionVariant, setSelectedOptionVariant] = useState("");
+  const [errorOptionVariant, setErrorOptionVariant] = useState(false);
+  const [selectedOptionCity, setSelectedOptionCity] = useState("");
+  const [errorOptionCity, setErrorOptionCity] = useState(false);
 
-  //to select model depending on brand
-  const selectModel = (selectedBrand) => {
-    setModel(carData.carModels[selectedBrand]);
-  };
+  const [selectedOptionCountry, setSelectedOptionCountry] = useState("");
+  const [errorOptionCountry, setErrorOptionCountry] = useState(false);
+  const [selectedOptionNationality, setSelectedOptionNationality] =
+    useState("");
+  const [errorOptionNationality, setErrorOptionNationality] = useState(false);
+  const [selectedOptionInsurance, setSelectedOptionInsurance] = useState("");
+  const [errorOptionInsurance, setErrorOptionInsurance] = useState(false);
+
+  useEffect(() => {
+    setData({
+      ...data,
+      car_year: selectedOptionYear,
+      car_brand: selectedOptionBrand,
+      variant: selectedOptionVariant,
+      model: selectedOptionModel,
+      city: selectedOptionCity,
+
+      nationality: selectedOptionNationality,
+      country: selectedOptionCountry,
+      insurance: selectedOptionInsurance,
+    });
+    if (selectedOptionBrand !== "") {
+      setErrorOptionBrand(false);
+    }
+    if (selectedOptionYear !== "") {
+      setErrorOptionYear(false);
+    }
+    if (selectedOptionModel !== "") {
+      setErrorOptionModel(false);
+    }
+
+    if (selectedOptionVariant !== "") {
+      setErrorOptionVariant(false);
+    }
+    if (selectedOptionCity !== "") {
+      setErrorOptionCity(false);
+    }
+    if (selectedOptionNationality !== "") {
+      setErrorOptionNationality(false);
+    }
+    if (selectedOptionCountry !== "") {
+      setErrorOptionCountry(false);
+    }
+    if (selectedOptionInsurance !== "") {
+      setErrorOptionInsurance(false);
+    }
+  }, [
+    selectedOptionBrand,
+    selectedOptionYear,
+    selectedOptionModel,
+    selectedOptionVariant,
+    selectedOptionCity,
+    selectedOptionNationality,
+    selectedOptionCountry,
+    selectedOptionInsurance,
+  ]);
+
   const datePickerId = new Date().toISOString().split("T")[0];
 
   // Step1ValidationSchema
   const stepOneValidationSchema = Yup.object({
-    car_year: Yup.string().required().label("Car Year"),
-    model: Yup.string().required().label("Model"),
     first_car: Yup.string().required().label("This"),
     brand_new_car: Yup.string().required().label("This"),
     car_first_registered: Yup.string().required().label("This"),
     gcc_spec: Yup.string().required().label("This"),
     agency_repair: Yup.string().required().label("This"),
-    car_brand: Yup.string().required().label("This"),
-    city: Yup.string().required().label("This"),
-    variant: Yup.string().required().label("This"),
     is_fully_comprehensive: Yup.string().required().label("This"),
   });
   //StepOne
   const StepOne = (props) => {
     const handleSubmit = (values) => {
-      props.next(values, false);
+      if ( selectedOptionYear === "") {
+        setErrorOptionYear(true);
+      } else if (selectedOptionBrand === "") {
+        setErrorOptionBrand(true);
+      } else if (selectedOptionModel === "") {
+        setErrorOptionModel(true);
+      } else if (selectedOptionVariant === "") {
+        setErrorOptionVariant(true);
+      } else if (selectedOptionCity === "") {
+        setErrorOptionCity(true);
+      } else {
+        props.next(values, false);
+      }
     };
-
+    console.log(data, "data");
     return (
       <Formik
         validationSchema={stepOneValidationSchema}
@@ -47,161 +119,206 @@ function InsuranceQuote() {
       >
         {(formikProps) => (
           <Form className=" my-6 p-2 text-sm">
-            <Stepper step={"step1"} />
             <div className="m-4 grid gap-6 sm:grid-cols-12">
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2 ">Car Year</p>
-                <Field
-                  type="date"
-                  max={datePickerId}
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                  name="car_year"
-                  placeholder="Choose Year"
-                  // onfocus={type='date'}
-                  //  onblur="(this.type='text')"
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Car Year
+                </p>
+                <Select
+                  defaultValue={selectedOptionYear}
+                  onChange={setSelectedOptionYear}
+                  options={carData.optionsYears}
+                  placeholder={"Choose Year"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    menu: () => "text-xs",
+                  }}
                 />
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="car_year" />
+                <div
+                  className={`${
+                    errorOptionYear ? "text-xs text-red-500" : "hidden"
+                  }`}
+                >
+                  This is a required field
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block ">
-                <p className="text-sm font-medium my-2">Brand</p>
-                <Field
-                  name="car_brand"
-                  as="select"
-                  placeholder="Choose Brand"
-                  // className="border-2   w-full text-xs"
-                  className="block w-full border-2 rounded-md radius-lg p-3 text-xs focus:bg-slate-50 focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-black"
-                  // onChange={(e) => {
-                  //   selectModel(e.target.value);
-                  // }}
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Brand
+                </p>
+                <Select
+                  defaultValue={selectedOptionBrand}
+                  onChange={setSelectedOptionBrand}
+                  options={carData.optionsBrand}
+                  placeholder={"Choose Brand"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    menu: () => "text-xs",
+                  }}
+                />
+                <div
+                  className={`${
+                    errorOptionBrand ? "text-xs text-red-500" : "hidden"
+                  }`}
                 >
-                  <option label="Choose Brand" value="" disabled />
-                  {carData.Brands.map((brand) => {
-                    return (
-                      <option
-                        key={brand}
-                        label={brand}
-                        value={brand}
-                        className="bg-slate-50 "
-                      />
-                    );
-                  })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="car_brand" />
+                  This is a required field
                 </div>
               </div>
 
               <div className="rounded-lg sm:col-span-6  sm:block">
-                <p className="text-sm font-medium my-2">Model</p>
-                <Field
-                  name="model"
-                  as="select"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                  placeholder="Choose Model"
-                >
-                  <option value="" defaultValue={""}>
-                    Choose Model
-                  </option>
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Model
+                </p>
 
-                  {/* {model?.map((model) => {
-                    return <option key={model} label={model} value={model} />;
-                  })} */}
-                  {carData?.carModels?.Benz.map((model) => {
-                    return <option key={model} label={model} value={model} />;
-                  })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="model" />
+                <Select
+                  defaultValue={selectedOptionModel}
+                  onChange={setSelectedOptionModel}
+                  options={carData.optionsModels}
+                  placeholder={"Choose Model"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    menu: () => "text-xs",
+                  }}
+                />
+                <div
+                  className={`${
+                    errorOptionModel ? "text-xs text-red-500" : "hidden"
+                  }`}
+                >
+                  This is a required field
                 </div>
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Variant</p>
-                <Field
-                  name="variant"
-                  as="select"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                  placeholder="Choose Variant"
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Variant
+                </p>
+                <Select
+                  defaultValue={selectedOptionVariant}
+                  onChange={setSelectedOptionVariant}
+                  options={carData.optionsVariants}
+                  placeholder={"Choose Varaint"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    menu: () => "text-xs",
+                  }}
+                />
+                <div
+                  className={`${
+                    errorOptionVariant ? "text-xs text-red-500" : "hidden"
+                  }`}
                 >
-                  <option value="" defaultValue={""}>
-                    Choose Variant
-                  </option>
-                  {carData?.variants?.Benz?.AMG?.map((model) => {
-                    return <option key={model} label={model} value={model} />;
-                  })}
-                  {/* {model?.map((model) => {
-                  return <option key={model} label={model} value={model} />;
-                })} */}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="variant" />
+                  This is a required field
                 </div>
               </div>
               {/* Row3 */}
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   Is you car brand new ?
                 </p>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="brand_new_car"
-                    value="Yes"
-                    className="peer-checked:border-black appearance-none"
-                  />
-                  Yes
-                </label>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="brand_new_car"
-                    value="No"
-                    className="peer-checked:border-black appearance-none"
-                  />
-                  No
-                </label>
-                {/* <div>Value: {formikProps.values.picked}</div> */}
+
+                <ul class="grid  md:grid-cols-2">
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="brand_new_car_yes"
+                      name="brand_new_car"
+                      value="Yes"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="brand_new_car_yes"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">Yes</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="brand_new_car_no"
+                      name="brand_new_car"
+                      value="No"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="brand_new_car_no"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">No</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="brand_new_car" />
                 </div>
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   Are you buying you first car?
                 </p>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="first_car"
-                    value="Yes"
-                    className="appearance-none"
-                  />
-                  Yes
-                </label>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="first_car"
-                    value="No"
-                    className="appearance-none"
-                  />
-                  No
-                </label>
+                <ul class="grid  md:grid-cols-2">
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="first_car_yes"
+                      name="first_car"
+                      value="Yes"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="first_car_yes"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">Yes</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="first_car_no"
+                      name="first_car"
+                      value="No"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="first_car_no"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">No</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="first_car" />
                 </div>
               </div>
               {/* Row4 */}
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   When was you car first registered?
                 </p>
                 <Field
                   type="date"
                   max={datePickerId}
                   name="car_first_registered"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                  className="border-2 radius-lg  radius-lg rounded-md p-2.5 w-full text-xs "
                   placeholder="Choose Date"
                 />
                 <div className="text-red-500 text-xs">
@@ -209,109 +326,159 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   In which city do you want to register this car?
                 </p>
-                <Field
-                  name="city"
-                  as="select"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                  placeholder="Choose City"
+                <Select
+                  defaultValue={selectedOptionCity}
+                  onChange={setSelectedOptionCity}
+                  options={carData.optionsCities}
+                  placeholder={"Choose City"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md  text-xs",
+                    menu: () => "text-xs",
+                  }}
+                />
+                <div
+                  className={`${
+                    errorOptionCity ? "text-xs text-red-500" : "hidden"
+                  }`}
                 >
-                <option value="" defaultValue={""}>
-                  Choose City
-                </option>
-                {carData?.cities.map((city) => {
-                  return <option key={city} label={city} value={city} />;
-                })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="city" />
+                  This is a required field
                 </div>
               </div>
               {/* Row5 */}
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   Is this car GCC spec AND unmodified?
                 </p>
-                {/* <Field name="GCCspec" placeholder="Choose Variant" /> */}
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="gcc_spec"
-                    value="Yes"
-                    className="appearance-none"
-                  />
-                  Yes
-                </label>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="gcc_spec"
-                    value="No"
-                    className="appearance-none"
-                  />
-                  No
-                </label>
+                <ul class="grid  md:grid-cols-2">
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="gcc_spec_yes"
+                      name="gcc_spec"
+                      value="Yes"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="gcc_spec_yes"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">Yes</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="gcc_spec_no"
+                      name="gcc_spec"
+                      value="No"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="gcc_spec_no"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">No</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="gcc_spec" />
                 </div>
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   Is the current policy fully comprehensive?
                 </p>
-                {/* <Field name="last_name" placeholder="Choose Variant" /> */}
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="is_fully_comprehensive"
-                    value="Yes"
-                    className="appearance-none"
-                  />
-                  Yes
-                </label>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="is_fully_comprehensive"
-                    value="No"
-                    class="hidden peer"
-                    className="appearance-none peer-checked:border-black"
-                  />
-                  No
-                </label>
+                <ul class="grid  md:grid-cols-2">
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="is_fully_comprehensive_yes"
+                      name="is_fully_comprehensive"
+                      value="Yes"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="is_fully_comprehensive_yes"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">Yes</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="is_fully_comprehensive_no"
+                      name="is_fully_comprehensive"
+                      value="No"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="is_fully_comprehensive_no"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">No</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="is_fully_comprehensive" />
                 </div>
               </div>
               <div className="rounded-lg sm:col-span-6 sm:block ">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-medium my-2 ">
                   Does the current policy of this car include agency repair?
                 </p>
-                {/* <label className=" py-3 text-xs  inline-flex items-center text-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field type="radio" name="agency_repair" value="Yes" className="appearance-none"/>
-                  Yes
-                </label> */}
-                <label className=" text-gray-500 inline-flex w-56 mr-2  justify-center py-3 text-xs items-center rounded-lg  border-2">
-                  <Field
-                    type="radio"
-                    name="agency_repair"
-                    value="Yes"
-                    className="appearance-none"
-                  />
-                  Yes
-                </label>
-                <label class="py-3 text-xs inline-flex items-center justify-center w-56 mr-2 p-2 text-gray-500  rounded-lg cursor-pointer peer-checked:border-black border-2 dark:border-gray-200 dark:peer-checked:text-black  dark:hover:bg-gray-100">
-                  <Field
-                    type="radio"
-                    name="agency_repair"
-                    value="No"
-                    // class="hidden peer"
-                    className="appearance-none"
-                  />
-                  No
-                </label>
+
+                <ul class="grid  md:grid-cols-2">
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="agency_repair_yes"
+                      name="agency_repair"
+                      value="Yes"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="agency_repair_yes"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">Yes</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li className="mx-2">
+                    <Field
+                      type="radio"
+                      id="agency_repair_no"
+                      name="agency_repair"
+                      value="No"
+                      class="hidden peer"
+                    />
+                    <label
+                      for="agency_repair_no"
+                      class="inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border-2 dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100"
+                    >
+                      <div class="block">
+                        <div class="w-full">No</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
                 <div className="text-red-500 text-xs">
                   <ErrorMessage name="agency_repair" />
                 </div>
@@ -331,20 +498,28 @@ function InsuranceQuote() {
 
   // step2 validationschema
   const stepTwoValidationSchema = Yup.object({
-    email: Yup.string().required().email().label("Email"),
-    nationality: Yup.string().required().label("Nationality"),
-    full_name: Yup.string().required().label("Full name"),
-    country: Yup.string().required().label("County"),
-    experience: Yup.string().required().label("This"),
-    insurance: Yup.string().required().label("This"),
-    dob: Yup.string().required().label("DOB"),
-    mobile_number: Yup.string().required().label("Mobile Number"),
-    duration: Yup.string().required().label("This"),
+    // email: Yup.string().required().email().label("Email"),
+    // nationality: Yup.string().required().label("Nationality"),
+    // full_name: Yup.string().required().label("Full name"),
+    // country: Yup.string().required().label("County"),
+    // experience: Yup.string().required().label("This"),
+    // insurance: Yup.string().required().label("This"),
+    // dob: Yup.string().required().label("DOB"),
+    // mobile_number: Yup.string().required().label("Mobile Number"),
+    // duration: Yup.string().required().label("This"),
   });
   //Steptwo
   const StepTwo = (props) => {
     const handleSubmit = (values) => {
-      props.next(values, true);
+      if (selectedOptionCountry === "") {
+        setErrorOptionCountry(true);
+      } else if (selectedOptionNationality === "") {
+        setErrorOptionNationality(true);
+      } else if (selectedOptionInsurance === "") {
+        setErrorOptionInsurance(true);
+      } else {
+        props.next(values, true);
+      }
     };
 
     return (
@@ -355,54 +530,61 @@ function InsuranceQuote() {
       >
         {(values) => (
           <Form className=" my-6 p-2 ">
-            <Stepper step={"step2"} />
             <div className="m-4 grid gap-6 sm:grid-cols-12">
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Nationality</p>
-                <Field
-                  name="nationality"
-                  as="select"
-                  placeholder=" Choose Nationality"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                >
-                  <option label="Choose Nationality" value="" disabled />
-                  {carData?.nationality?.map((nationality) => {
-                    return (
-                      <option
-                        key={nationality}
-                        label={nationality}
-                        value={nationality}
-                      />
-                    );
-                  })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="nationality" />
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Nationality
+                </p>
+                <div>
+                  <Select
+                    defaultValue={selectedOptionNationality}
+                    onChange={setSelectedOptionNationality}
+                    options={carData.optionsNationalities}
+                    placeholder={"Choose Nationality"}
+                    isSearchable
+                    classNames={{
+                      control: () =>
+                        "border-2 border-gray-200 rounded-md p-0 text-xs",
+                      menu: () => "text-xs",
+                    }}
+                  />
+                  <div
+                    className={`${
+                      errorOptionNationality ? "text-xs text-red-500" : "hidden"
+                    }`}
+                  >
+                    This is a required field
+                  </div>
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-medium my-2 sm:h-10 lg:h-auto">
                   Which country issued your first driving license?
                 </p>
-                <Field
-                  name="country"
-                  as="select"
-                  placeholder="Choose Country"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
-                >
-                  <option label="Choose Country" value="" disabled />
-                  {carData?.country?.map((country) => {
-                    return (
-                      <option key={country} label={country} value={country} />
-                    );
-                  })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="country" />
+                <div className="">
+                  <Select
+                    defaultValue={selectedOptionCountry}
+                    onChange={setSelectedOptionCountry}
+                    options={carData.optionsCountry}
+                    placeholder={"Choose Country"}
+                    isSearchable
+                    classNames={{
+                      control: () =>
+                        "border-2 border-gray-200 rounded-md p-0 text-xs",
+                      menu: () => "text-xs",
+                    }}
+                  />
+                  <div
+                    className={`${
+                      errorOptionCountry ? "text-xs text-red-500" : "hidden"
+                    }`}
+                  >
+                    This is a required field
+                  </div>
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   How many years of international driving experience do you
                   have?
                 </p>
@@ -416,7 +598,7 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   How long you have been driving in the UAE?
                 </p>
                 <Field
@@ -429,7 +611,9 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Full Name </p>
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Full Name{" "}
+                </p>
                 <Field
                   className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
                   name="full_name"
@@ -440,7 +624,9 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Mobile Number</p>
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Mobile Number
+                </p>
                 <Field
                   className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
                   name="mobile_number"
@@ -452,7 +638,9 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Email Address </p>
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Email Address{" "}
+                </p>
                 <Field
                   className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
                   name="email"
@@ -463,7 +651,9 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">Date of Birth</p>
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+                  Date of Birth
+                </p>
                 <Field
                   type="date"
                   max={datePickerId}
@@ -476,35 +666,37 @@ function InsuranceQuote() {
                 </div>
               </div>
               <div className=" rounded-lg sm:col-span-6 sm:block">
-                <p className="text-sm font-medium my-2">
+                <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
                   Are you looking for Fully Comprehensive insurance, or other
                 </p>
-                <Field
-                  name="insurance"
-                  as="select"
-                  className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                <Select
+                  defaultValue={selectedOptionInsurance}
+                  onChange={setSelectedOptionInsurance}
+                  options={carData.optionsInsurance}
+                  placeholder={"Choose"}
+                  isSearchable
+                  classNames={{
+                    control: () =>
+                      "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    menu: () => "text-xs",
+                  }}
+                />
+                <div
+                  className={`${
+                    errorOptionInsurance ? "text-xs text-red-500" : "hidden"
+                  }`}
                 >
-                  <option label="Choose Insurance" disabled value="" />
-                  {carData?.insurance?.map((insurance) => {
-                    return (
-                      <option
-                        key={insurance}
-                        label={insurance}
-                        value={insurance}
-                      />
-                    );
-                  })}
-                </Field>
-                <div className="text-red-500 text-xs">
-                  <ErrorMessage name="insurance" />
+                  This is a required field
                 </div>
               </div>
             </div>
-            <div className="m-4 grid gap-4 sm:grid-cols-12">
+
+            {/* //buttons div */}
+            <div className="m-4 gdiv gap-4 sm:grid-cols-12">
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <button
                   onClick={() => props.prev(values)}
-                  className=" lg:w-auto  w-full py-4 px-16 text-xs my-auto bg-blue-700 rounded-3xl sm:float-left text-white "
+                  className=" lg:w-auto md:w-auto w-full py-4 px-16 text-xs md:my-auto my-2  bg-blue-700 rounded-3xl sm:float-left text-white "
                   type="button"
                 >
                   Back
@@ -513,7 +705,7 @@ function InsuranceQuote() {
               <div className=" rounded-lg sm:col-span-6 sm:block">
                 <button
                   // onClick={() => props.next(values, true)}
-                  className=" lg:w-auto  w-full py-4 px-12 text-xs my-auto bg-blue-700 rounded-3xl sm:float-right text-white "
+                  className=" lg:w-auto  md:w-auto w-full py-4 px-12 text-xs md:my-auto my-2 bg-blue-700 rounded-3xl sm:float-right text-white "
                   type="submit"
                 >
                   Get Quote
@@ -527,13 +719,12 @@ function InsuranceQuote() {
   };
 
   const [data, setData] = useState({
-    model: "",
-    email: "",
     car_year: "",
     car_brand: "",
+    model: "",
+    variant: "",
     insurance: "",
     is_fully_comprehensive: "",
-    variant: "",
     brand_new_car: "",
     car_first_registered: "",
     first_car: "",
@@ -545,6 +736,7 @@ function InsuranceQuote() {
     experience: "",
     duration: "",
     full_name: "",
+    email: "",
     dob: "",
     mobile_number: "",
   });
@@ -577,6 +769,7 @@ function InsuranceQuote() {
         <div className="items-center justify-between">
           <div className="text-xl text-center">Get Your Insurance Quote</div>
           <div className="text-xl text-center">In A Few Clicks!</div>
+          <Stepper step={currentStep + 1} setCurrentStep={setCurrentStep} />
           {steps[currentStep]}
           <Modal modal={isOpen} setIsOpen={setIsOpen} />
         </div>

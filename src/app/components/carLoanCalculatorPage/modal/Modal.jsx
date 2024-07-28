@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Formikselect from "../../formikSelect/Formikselect";
-import FormikSelect2 from "../../formikSelect/FormikSelect2";
+import FormikSelect from "../../formikSelect/FormikSelect";
 function Modal({ modal, setIsOpen, setCarSelected }) {
   return (
     <>
@@ -19,8 +17,7 @@ function Modal({ modal, setIsOpen, setCarSelected }) {
                 </div>
               </div>
             <div className="m-4">
-            {/* <Formikselect setIsOpen={setIsOpen} setCarSelected={setCarSelected}/> */}
-            <FormikSelect2 setIsOpen={setIsOpen} setCarSelected={setCarSelected}/>
+            <FormikSelect setIsOpen={setIsOpen} setCarSelected={setCarSelected}/>
             </div>
           </div>
         </dialog>

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import benzIcon from "./../../../../public/benz-icon.svg";
-import mistubishiIcon from "./../../../../public/mistubishi-icon.svg";
-import nissanIcon from "./../../../../public/nissan-icon.svg";
-import fiatIcon from "./../../../../public/fiat-icon.svg";
-import brandIcon from "./../../../../public/brand-icon.png";
+import benzIcon from "./../../../../../public/benz-icon.svg";
+import mistubishiIcon from "./../../../../../public/mistubishi-icon.svg";
+import nissanIcon from "./../../../../../public/nissan-icon.svg";
+import fiatIcon from "./../../../../../public/fiat-icon.svg";
+import brandIcon from "./../../../../../public/brand-icon.png";
 
 export default function ChooseYourBrand() {
     const image = [benzIcon, mistubishiIcon, nissanIcon, benzIcon, fiatIcon, brandIcon, benzIcon, mistubishiIcon, nissanIcon, benzIcon, fiatIcon, brandIcon,]

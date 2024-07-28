@@ -1,12 +1,4 @@
 export const carData = {
-  Brands: ["Benz", "BMW", "Toyota"],
-  carModels: {
-    Benz: ["AMG", "GLE", "EQS"],
-
-    BMW: ["M3", "X5"],
-
-    Toyota: ["Landcruiser", "Prado"],
-  },
   optionsBrand: [
     { value: "Benz", label: "Benz" },
     { value: "BMW", label: "BMW" },
@@ -53,33 +45,34 @@ export const carData = {
     { value: "fullyComprehensive", label: "Fully Comprehensive" },
     { value: "thirdParty", label: "Third Party" },
   ],
-
-  variants: {
-    Benz: {
-      AMG: ["AMG-petrol", "AMG-variantB"],
-      GLE: ["GLE petrol", "GLE variantB"],
-      EQS: ["EQS-petrol", "EQS-variantB"],
-    },
-    BMW: {
-      M3: ["M3-petrol", "M3-variantB"],
-      X5: ["X5 petrol", "X5 variantB"],
-    },
-    Toyota: {
-      Landcruiser: ["Landcruiser-petrol", "Landcruiser-variantB"],
-      Prado: ["Prado petrol", "Prado variantB"],
-    },
-  },
-  nationality: ["Indian", "Emirati", "Philipino", "Russian"],
-
-  country: ["India", "UAE", "Philipines", "Russia"],
-  insurance: ["Fully comprehensive", "Third party"],
-  cities: [
-    "Abudhabi",
-    "Dubai",
-    "Sharjah",
-    "Fujairah",
-    "UmmAlQuwain",
-    "Ras Al Khaimah",
-    "Ajman",
+  popularNewCars: [
+    "New Honda HRV",
+    "JAC S3 PLus",
+    "Audi Q7",
+    "New Ford Bronco",
+    "New Honda Civic",
+    "New Honda HRV",
+    "JAC S3 PLus",
+    "Audi Q7",
+    "New Ford Bronco",
+    "New Honda Civic",
+    "New Honda HRV",
+    "JAC S3 PLus",
+    "Audi Q7",
+    "New Ford Bronco",
+    "New Honda Civic",
+    "Audi Q7",
   ],
+  searchedKeywords:[
+    "Top 10 Best-Selling Cars of the Year",
+    "Budget-Friendly Cars Under AED 50,000",
+    "Electric Vehicles: The Future of Driving",
+    "SUV Showdown: Comparing the Top Models",
+    "New car launches",
+    "Maintenance Tips to Keep Your Car Running Smoothly",
+    "Most popular new car models",
+    "Top-selling new car trims",
+    "Top new car demand",
+    "Top-selling new car brands",
+  ]
 };

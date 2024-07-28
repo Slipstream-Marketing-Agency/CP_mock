@@ -1,29 +1,22 @@
-"use client"
-import { useState } from 'react';
-import Select from 'react-select';
-// // import { carData } from '@/app/mocks/mock';
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' },
-// ];
+"use client";
+import Select from "react-select";
 
-// selectedOptionBrand={selectedOptionBrand}
-// setSelectedOptionBrand={setSelectedOptionBrand}
-// options={carData.Brands}
-// placeholder={"Choose Brand"}
-
-export default function SelectComponent({selectedOption, setSelectedOption, selectOptions,placeholder}) {
-//   const [selectedOption, setSelectedOption] = useState(null);
-  console.log(selectedOption,"selected");
-
+export default function SelectComponent({
+  onChange,
+  options,
+  value,
+  placeholder,
+}) {
+  const defaultValue = (options, value) => {
+    return options ? options.find((option) => option.value === value) : "";
+  };
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Select
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
+        value={defaultValue(options, value)}
+        onChange={(value) => onChange(value)}
         placeholder={placeholder}
-        options={selectOptions}
+        options={options}
       />
     </div>
   );

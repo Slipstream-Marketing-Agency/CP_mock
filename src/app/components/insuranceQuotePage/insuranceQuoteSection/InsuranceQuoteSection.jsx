@@ -4,15 +4,13 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState, useEffect } from "react";
 import Stepper from "../3stepper/Stepper";
-import { carData } from "@/app/mocks/mock";
+import { carData } from "../../../mocks/mock";
 import Modal from "../modal/Modal";
 // import HorizontalLinearStepper from "../stepper/Stepper";
 // import SelectComponent from "../selectComponent/selectComponent";
 
 function InsuranceQuote() {
-  // const [brands, setBrand] = useState(carData.Brands);
-  // const [selectedCarbrand, setSelectedCarbrand] = useState(carData.Brands);
-  const [model, setModel] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptionBrand, setSelectedOptionBrand] = useState("");
   const [errorOptionBrand, setErrorOptionBrand] = useState(false);
@@ -127,7 +125,7 @@ function InsuranceQuote() {
                 <Select
                   defaultValue={selectedOptionYear}
                   onChange={setSelectedOptionYear}
-                  options={carData.optionsYears}
+                  options={carData?.optionsYears}
                   placeholder={"Choose Year"}
                   isSearchable
                   classNames={{
@@ -151,7 +149,7 @@ function InsuranceQuote() {
                 <Select
                   defaultValue={selectedOptionBrand}
                   onChange={setSelectedOptionBrand}
-                  options={carData.optionsBrand}
+                  options={carData?.optionsBrand}
                   placeholder={"Choose Brand"}
                   isSearchable
                   classNames={{
@@ -177,7 +175,7 @@ function InsuranceQuote() {
                 <Select
                   defaultValue={selectedOptionModel}
                   onChange={setSelectedOptionModel}
-                  options={carData.optionsModels}
+                  options={carData?.optionsModels}
                   placeholder={"Choose Model"}
                   isSearchable
                   classNames={{
@@ -201,7 +199,7 @@ function InsuranceQuote() {
                 <Select
                   defaultValue={selectedOptionVariant}
                   onChange={setSelectedOptionVariant}
-                  options={carData.optionsVariants}
+                  options={carData?.optionsVariants}
                   placeholder={"Choose Varaint"}
                   isSearchable
                   classNames={{
@@ -332,7 +330,7 @@ function InsuranceQuote() {
                 <Select
                   defaultValue={selectedOptionCity}
                   onChange={setSelectedOptionCity}
-                  options={carData.optionsCities}
+                  options={carData?.optionsCities}
                   placeholder={"Choose City"}
                   isSearchable
                   classNames={{

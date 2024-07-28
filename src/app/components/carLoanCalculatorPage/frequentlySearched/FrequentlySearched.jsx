@@ -1,0 +1,36 @@
+import { carData } from "../../../mocks/mock";
+export default function FrequentlySearched() {
+  return (
+    <div>
+      <div className=" text-blue-600 font-bold text-sm uppercase">
+        Frequently searched
+      </div>
+      <div className="font-semibold font-medium text-xl leading-9">
+        What Others Are Searching For ?
+      </div>
+
+      {/*popular cars */}
+      <div className="hidden lg:block">
+        <div className="font-semibold font-medium text-md mt-8 mb-4">
+          Popular New Cars
+        </div>
+        <div className=" grid gap-2 sm:grid-cols-12 opacity-70">
+          {carData?.popularNewCars?.map((cars) => (
+            <div className="sm:col-span-3 rounded-xl">{cars}</div>
+          ))}
+        </div>
+      </div>
+      {/*searched keywords */}
+      <div className="sm:hidden">
+        <div className="font-semibold font-medium text-md mt-4 mb-4">
+       Searched Keywords
+        </div>
+        <div className="grid gap-2 sm:grid-cols-12 opacity-70 leading-7">
+          {carData?.searchedKeywords?.map((keywords) => (
+            <div className="">{keywords}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

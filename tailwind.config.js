@@ -17,6 +17,13 @@ module.exports = {
       fontFamily:{
         gilroy:["Gilroy","sans-serif"]
       },
+      colors:{
+        "button-bg":"#3563E9",
+        "sad-blue":{
+          100:"#2933E6",
+          200:'#020DE0',
+        }
+      }
     },
   },
   plugins: [],

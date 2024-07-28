@@ -10,7 +10,7 @@ export default function RecommendationDiv() {
                 {/* div1 */}
                 <div className='sm:col-span-4 m-2 border-2 rounded-xl px-2 py-4'>
                     <div className="">
-                        <Image src="/car-image2.png" width={150} height={150} className="mx-auto mb-2" />
+                        <Image src="/car-image2.png" width={250} height={250} className="mx-auto mb-2" />
                         <div className='text-blue-500 text-xs'>VOLVO</div>
                         <div className='text-sm font-medium'>Volvo XC40</div>
                         <div className='font-bold text-sm'>AED 185,850 - 222,900</div>
@@ -46,7 +46,7 @@ export default function RecommendationDiv() {
                 {/* div2 */}
                 <div className='sm:col-span-4 m-2 border-2 rounded-xl px-2 py-4'>
                     <div className="">
-                        <Image src="/car-image2.png" width={150} height={150} className="mx-auto mb-2" />
+                        <Image src="/car-image2.png" width={250} height={250} className="mx-auto mb-2" />
                         <div className='text-blue-500 text-xs'>VOLVO</div>
                         <div className='text-sm font-medium'>Volvo XC40</div>
                         <div className='font-bold text-sm'>AED 185,850 - 222,900</div>
@@ -82,7 +82,7 @@ export default function RecommendationDiv() {
                 {/* div3 */}
                 <div className='sm:col-span-4 m-2 border-2 rounded-xl px-2 py-4'>
                     <div className="">
-                        <Image src="/car-image2.png" width={150} height={150} className="mx-auto mb-2" />
+                        <Image src="/car-image2.png" width={250} height={250} className="mx-auto mb-2" />
                         <div className='text-blue-500 text-xs'>VOLVO</div>
                         <div className='text-sm font-medium'>Volvo XC40</div>
                         <div className='font-bold text-sm'>AED 185,850 - 222,900</div>

@@ -8,13 +8,13 @@ export default function CarLoanCalculatorPage() {
     <section className="font-gilroy">
       <hr />
       <div className="grid sm:grid-cols-12 py-2 px-6 sm:px-24 md:px-16  bg-slate-100">
-        <div className="sm:col-span-1 flex">
+        <div className="sm:col-span-12 flex">
           <Image
             src={"/carLoanPage/home-icon.svg"}
             alt="home-icon"
             width={30}
             height={30}
-            className=""
+            className="cursor-pointer"
           />
           <Image
             src={"/carLoanPage/arrow-right.svg"}
@@ -23,9 +23,7 @@ export default function CarLoanCalculatorPage() {
             height={8}
             className="mx-3"
           />
-        </div>
-        <div className="sm:col-span-8 font-semibold sm:-ml-20">
-          Car Loan Calculator
+          <div className=" font-semibold">Car Loan Calculator</div>
         </div>
       </div>
       <hr />

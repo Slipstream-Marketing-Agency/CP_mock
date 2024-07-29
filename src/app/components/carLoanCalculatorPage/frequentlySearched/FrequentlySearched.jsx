@@ -5,7 +5,7 @@ export default function FrequentlySearched() {
       <div className=" text-blue-600 font-bold text-sm uppercase">
         Frequently searched
       </div>
-      <div className="font-semibold font-medium text-xl leading-9">
+      <div className="font-semibold text-2xl leading-9">
         What Others Are Searching For ?
       </div>
 
@@ -14,14 +14,14 @@ export default function FrequentlySearched() {
         <div className="font-semibold font-medium text-md mt-8 mb-4">
           Popular New Cars
         </div>
-        <div className=" grid gap-2 sm:grid-cols-12 opacity-70">
+        <div className=" grid gap-2 sm:grid-cols-12 opacity-70 mb-8">
           {carData?.popularNewCars?.map((cars) => (
             <div className="sm:col-span-3 rounded-xl">{cars}</div>
           ))}
         </div>
       </div>
       {/*searched keywords */}
-      <div className="sm:hidden">
+      <div className="sm:hidden mb-4">
         <div className="font-semibold font-medium text-md mt-4 mb-4">
        Searched Keywords
         </div>

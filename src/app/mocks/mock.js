@@ -1,3 +1,16 @@
+import carImage1 from "../../../public/volvo-img.svg";
+import carImage2 from "../../../public/bmw-black.svg";
+import carImage3 from "../../../public/audi-img.svg";
+import carImage4 from "../../../public/jeep-image.svg";
+import mistubishiIcon from "../../../public/carLoanPage/choosecar-popup/mistubishi-icon.png";
+import bmwIcon from "../../../public/carLoanPage/choosecar-popup/bmw-icon.png";
+import fotoniIcon from "../../../public/carLoanPage/choosecar-popup/foton-icon.png";
+import abarthIcon from "../../../public/carLoanPage/choosecar-popup/abarth-icon.png";
+import fiatIcon from "../../../public/carLoanPage/choosecar-popup/fiat-icon.png";
+import vwIcon from "../../../public/carLoanPage/choosecar-popup/vw-icon.png";
+import changanIcon from "../../../public/carLoanPage/choosecar-popup/changan-icon.png";
+import toyotaIcon from "../../../public/carLoanPage/choosecar-popup/toyota-icon.png";
+
 export const carData = {
   optionsBrand: [
     { value: "Benz", label: "Benz" },
@@ -45,6 +58,61 @@ export const carData = {
     { value: "fullyComprehensive", label: "Fully Comprehensive" },
     { value: "thirdParty", label: "Third Party" },
   ],
+
+  chooseCar: [
+    {
+      image: carImage1,
+      brand: "Volvo",
+      model: "Volvo XC40",
+      price: "AED 185,850* - 222,900*",
+      mileage: "90",
+      transmission: "Manual",
+      seats: "5 seater",
+      emi: "AED 3,196",
+    },
+    {
+      image: carImage2,
+      brand: "BMW",
+      model: "BMW X5",
+      price: "AED 185,850* - 222,900*",
+      mileage: "90",
+      transmission: "Manual",
+      seats: "5 seater",
+      emi: "AED 3,196",
+    },
+    {
+      image: carImage3,
+      brand: "Audi",
+      model: "Audi Q5",
+      price: "AED 185,850* - 222,900*",
+      mileage: "90",
+      transmission: "Manual",
+      seats: "5 seater",
+      emi: "AED 3,196",
+    },
+  ],
+  carComparison: [
+    {
+      image2: carImage1,
+      brand2: "Volvo",
+      model2: "Volvo XC40",
+      price2: "AED 456,500*",
+      image1: carImage3,
+      brand1: "Audi",
+      model1: "Audi Q5",
+      price1: "AED 185,850* - 222,900*",
+    },
+    {
+      image2: carImage2,
+      brand2: "BMW",
+      model2: "BMW X5",
+      price2: "AED 155,123*",
+      image1: carImage4,
+      brand1: "Jeep",
+      model1: "Jeep Compass",
+      price1: "AED 185,850* - 222,900*",
+    },
+  ],
   popularNewCars: [
     "New Honda HRV",
     "JAC S3 PLus",
@@ -63,7 +131,7 @@ export const carData = {
     "New Honda Civic",
     "Audi Q7",
   ],
-  searchedKeywords:[
+  searchedKeywords: [
     "Top 10 Best-Selling Cars of the Year",
     "Budget-Friendly Cars Under AED 50,000",
     "Electric Vehicles: The Future of Driving",
@@ -74,5 +142,71 @@ export const carData = {
     "Top-selling new car trims",
     "Top new car demand",
     "Top-selling new car brands",
-  ]
+  ],
+  chooseBrandModal: [
+    {
+      image: mistubishiIcon,
+      brand: "mistubishi",
+    },
+    {
+      image: bmwIcon,
+      brand: "BMW",
+    },
+    {
+      image: fotoniIcon,
+      brand: "foton",
+    },
+    {
+      image: abarthIcon,
+      brand: "abarth",
+    },
+    {
+      image: fiatIcon,
+      brand: "fiat",
+    },
+    {
+      image: vwIcon,
+      brand: "VW",
+    },
+    {
+      image: changanIcon,
+      brand: "changan",
+    },
+    {
+      image: toyotaIcon,
+      brand: "toyota",
+    },
+    {
+      image: mistubishiIcon,
+      brand: "mistubishi",
+    },
+    {
+      image: bmwIcon,
+      brand: "BMW",
+    },
+    {
+      image: fotoniIcon,
+      brand: "foton",
+    },
+    {
+      image: fiatIcon,
+      brand: "fiat",
+    },
+    {
+      image: vwIcon,
+      brand: "VW",
+    },
+    {
+      image: changanIcon,
+      brand: "changan",
+    },
+  ],
+  chooseModal: [
+    "1 Series",
+    "2 Series Convertible",
+    "1 Series Coupe",
+    "5 Series Sedan",
+  ],
+  chooseYear: ["2024", "2023", "2022", "2021"],
+  chooseVariant: ["M Septronic"],
 };

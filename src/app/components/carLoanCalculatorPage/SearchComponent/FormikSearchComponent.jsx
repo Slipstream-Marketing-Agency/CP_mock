@@ -1,17 +1,16 @@
 "use client";
-
-import SelectComponent from "../selectComponent/selectComponent";
-import { carData } from "../../mocks/mock";
-import { useFormik, Form, Formik, Field, ErrorMessage } from "formik";
+import SearchComponent from "./SearchComponent";
+import { carData } from "../../../mocks/mock";
+import { useFormik } from "formik";
 import { useState, useEffect } from "react";
-function FormikSelect2({ setIsOpen, setCarSelected }) {
+function FormikSearchComponent({ setIsOpen, setCarSelected }) {
   const [data, setData] = useState({
     brand: "",
     model: "",
     year: "",
     variant: "",
   });
-
+  console.log(data, "Datata");
   useEffect(() => {
     // setData((prevData) => ({
     //   ...prevData,
@@ -24,12 +23,11 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
     const handleSubmit = (values) => {
       props.next(values, false);
     };
-
     const validate = (values) => {
       const errors = {};
-      if (!values.brand) {
-        errors.brand = "";
-      }
+      // if (!values.brand) {
+      //   errors.brand = "brand";
+      // }
       return errors;
     };
 
@@ -46,21 +44,13 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
-          <div htmlFor="Brand" className="text-xl font-semibold my-2">
-            Choose Brand
-          </div>
-          <button type="submit" className="w-full text-left">
-            <SelectComponent
-              options={carData?.optionsBrand}
-              value={formik.values.model}
-              onChange={(value) => formik.setFieldValue("brand", value.value)}
-              placeholder={"Select brand"}
-              classNames={{
-                control: () => "border-2 border-gray-200 rounded-md  text-xs ",
-                menu: () => "text-xs",
-              }}
-            />
-          </button>
+          <SearchComponent
+            options={carData?.chooseBrandModal}
+            fieldValue={"brand"}
+            placeholder={"Search brand"}
+            Formik={formik}
+            data={data}
+          />
           {formik.errors.brand ? (
             <div className="text-red-400">{formik.errors.brand}</div>
           ) : null}
@@ -77,9 +67,9 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
 
     const validate = (values) => {
       const errors = {};
-      if (!values.model) {
-        errors.model = "";
-      }
+      // if (!values.model) {
+      //   errors.model = "";
+      // }
       return errors;
     };
 
@@ -96,17 +86,13 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
-          <div htmlFor="model" className="text-xl font-semibold my-2">
-            Choose Model
-          </div>
-          <button type="submit" className="w-full text-left">
-            <SelectComponent
-              options={carData?.optionsModels}
-              value={formik.values.model}
-              onChange={(value) => formik.setFieldValue("model", value.value)}
-              placeholder={"Select Model"}
-            />
-          </button>
+          <SearchComponent
+            options={carData?.chooseModal}
+            fieldValue={"model"}
+            placeholder={"Search model"}
+            Formik={formik}
+            data={data}
+          />
 
           {formik.errors.model ? (
             <div className="text-red-400">{formik.errors.model}</div>
@@ -124,9 +110,9 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
 
     const validate = (values) => {
       const errors = {};
-      if (!values.year) {
-        errors.year = "";
-      }
+      // if (!values.year) {
+      //   errors.year = "";
+      // }
       return errors;
     };
 
@@ -143,17 +129,13 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
-          <div htmlFor="year" className="text-xl font-semibold my-2">
-            Choose year
-          </div>
-          <button type="submit" className="w-full text-left">
-            <SelectComponent
-              options={carData?.optionsYears}
-              value={formik.values.year}
-              onChange={(value) => formik.setFieldValue("year", value.value)}
-              placeholder={"Select Year"}
-            />
-          </button>
+          <SearchComponent
+            options={carData?.chooseYear}
+            fieldValue={"year"}
+            placeholder={"Search year"}
+            Formik={formik}
+            data={data}
+          />
 
           {formik.errors.year ? (
             <div className="text-red-400">{formik.errors.year}</div>
@@ -170,9 +152,9 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
 
     const validate = (values) => {
       const errors = {};
-      if (!values.variant) {
-        errors.variant = "";
-      }
+      // if (!values.variant) {
+      //   errors.variant = "";
+      // }
       return errors;
     };
 
@@ -189,18 +171,13 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
-          <div htmlFor="variant" className="text-xl font-semibold my-2">
-            Choose Variant
-          </div>
-          <button type="submit" className="w-full text-left">
-            <SelectComponent
-              options={carData?.optionsVariants}
-              value={formik.values.variant}
-              onChange={(value) => formik.setFieldValue("variant", value.value)}
-              placeholder={"Select variant"}
-            />
-          </button>
-          {/* <div onClick={handlePrevStep}>prev step</div> */}
+          <SearchComponent
+            options={carData?.chooseVariant}
+            fieldValue={"variant"}
+            placeholder={"Search variant"}
+            Formik={formik}
+            data={data}
+          />
           {formik.errors.variant ? (
             <div className="text-red-400">{formik.errors.variant}</div>
           ) : null}
@@ -244,4 +221,4 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
   );
 }
 
-export default FormikSelect2;
+export default FormikSearchComponent;

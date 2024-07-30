@@ -4,11 +4,11 @@ import { carData } from "../../../mocks/mock";
 export default function ChooseCarDiv() {
   return (
     <div className=" my-6">
-      <div className=" text-blue-600 font-bold text-sm uppercase">
-        {carLoanPage.chooseCarSection.headingSmall}
+      <div className=" heading-blue">
+        {carLoanPage.featuredCarSection.headingSmall}
       </div>
-      <div className="font-semibold font-medium text-2xl leading-9 mb-6">
-        {carLoanPage.chooseCarSection.heading}
+      <div className="heading">
+        {carLoanPage.featuredCarSection.heading}
       </div>
       <div className=" grid gap-4 md:grid-cols-12 ">
 
@@ -50,8 +50,8 @@ export default function ChooseCarDiv() {
               <div className="text-sm font-bold">{item.emi}*</div>
             </div>
             <div className="col-span-6 text-xs ">
-              <button className="bg-button-bg text-xs xl:text-sm font-thin text-white rounded-2xl justify-center text-center my-2 px-4 p-3 float-right">
-                Calculate EMI
+              <button className="bg-button-bg text-xs xl:text-sm font-thin text-white rounded-full justify-center text-center my-2 px-4 p-3 float-right">
+                View Details
               </button>
             </div>
           </div>

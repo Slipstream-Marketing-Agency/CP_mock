@@ -1,8 +1,7 @@
 "use client";
-
 import SelectComponent from "../selectComponent/selectComponent";
 import { carData } from "../../mocks/mock";
-import { useFormik, Form, Formik, Field, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 function FormikSelect2({ setIsOpen, setCarSelected }) {
   const [data, setData] = useState({
@@ -56,7 +55,7 @@ function FormikSelect2({ setIsOpen, setCarSelected }) {
               onChange={(value) => formik.setFieldValue("brand", value.value)}
               placeholder={"Select brand"}
               classNames={{
-                control: () => "border-2 border-gray-200 rounded-md  text-xs ",
+                control: () => "border-2 border-gray-200 rounded-md  text-xs",
                 menu: () => "text-xs",
               }}
             />

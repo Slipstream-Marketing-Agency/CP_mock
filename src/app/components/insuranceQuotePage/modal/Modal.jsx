@@ -3,10 +3,10 @@ function Modal({ modal, setIsOpen }) {
   return (
     <>
       {modal && (
-        <dialog className="fixed left-4 top-0 w-full h-full bg-black bg-opacity-20 z-10 overflow-auto backdrop-blur flex justify-center items-center">
-          <div className="bg-white rounded-md lg:w-1/4 w-1/2 p-5">
-            <div className=" grid sm:grid-cols-12">
-              <div className="sm:col-span-2 sm:block hidden bg-green-200 rounded-full  w-12 h-12 align-middle  ">
+        <dialog className="fixed sm:left-4 top-0 w-full h-full bg-black bg-opacity-20 z-10 overflow-auto backdrop-blur flex justify-center items-center">
+          <div className="bg-white rounded-md md:w-1/4 w-3/4 p-5">
+            <div className=" grid grid-cols-12">
+              <div className="sm:col-span-2 sm:block hidden bg-green-200 rounded-full w-12 h-12 align-middle">
                 <Image
                   src={"/icon-submitted.svg"}
                   alt="icon"
@@ -15,7 +15,7 @@ function Modal({ modal, setIsOpen }) {
                   className=""
                 />
               </div>
-              <div className=" sm:col-span-9 sm:block">
+              <div className="col-span-11 sm:col-span-9">
                 <div className="items-center ">
                   <h1 className="font-extralight text-md text-slate-600 my-1">
                     Thank You for Your Submission!
@@ -28,7 +28,7 @@ function Modal({ modal, setIsOpen }) {
                 </div>
               </div>
               <div
-                className=" sm:col-span-1 sm:block cursor-pointer mx-auto text-sm "
+                className=" col-span-1 cursor-pointer mx-auto text-sm "
                 onClick={() => setIsOpen(false)}
               >
                 X

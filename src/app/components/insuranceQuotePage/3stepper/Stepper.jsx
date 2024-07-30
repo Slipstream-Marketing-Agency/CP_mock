@@ -1,6 +1,6 @@
 export default function Stepper({ step, setCurrentStep }) {
   return (
-    <div className="mx-auto lg:w-1/2 md:w-1/2">
+    <div className="sm:p-6 px-6 mx-auto lg:w-1/2 md:w-1/2">
       <div className="flex mt-4 ">
         <div
           onClick={() => setCurrentStep(0)}

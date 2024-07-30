@@ -14,7 +14,7 @@ function mainSection() {
       document.body.style.overflow = "";
     }
   }, [carSelected]);
-  
+
   return (
     <div className="">
       <div className="text-3xl my-2">{carLoanPage.heading1}</div>

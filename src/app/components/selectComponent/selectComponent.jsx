@@ -6,6 +6,7 @@ export default function SelectComponent({
   options,
   value,
   placeholder,
+  classNames,
 }) {
   const defaultValue = (options, value) => {
     return options ? options.find((option) => option.value === value) : "";
@@ -17,6 +18,7 @@ export default function SelectComponent({
         onChange={(value) => onChange(value)}
         placeholder={placeholder}
         options={options}
+        classNames={classNames}
       />
     </div>
   );

@@ -26,4 +26,8 @@ export const carLoanPage = {
     headingSmall: "Choose the car to calculate loan EMI",
     heading: "Choose The Car",
   },
+  featuredCarSection: {
+    headingSmall: "Our Recommendation",
+    heading: "Featured Cars",
+  },
 };

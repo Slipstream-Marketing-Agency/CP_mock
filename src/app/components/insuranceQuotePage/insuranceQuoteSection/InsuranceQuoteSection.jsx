@@ -114,9 +114,7 @@ function InsuranceQuote() {
           <div className="m-4 grid gap-6 sm:grid-cols-12">
             {/* Row1 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Car Year
-              </p>
+              <p className="input-label 4xl:text-sm ">Car Year</p>
               <SelectComponent
                 options={carData?.optionsYears}
                 value={formik.values.car_year}
@@ -138,9 +136,7 @@ function InsuranceQuote() {
             </div>
             {/* 1.2 */}
             <div className=" rounded-lg sm:col-span-6 sm:block ">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Brand
-              </p>
+              <p className="input-label 4xl:text-sm">Brand</p>
               <SelectComponent
                 value={formik.values.car_brand}
                 onChange={(value) =>
@@ -161,9 +157,7 @@ function InsuranceQuote() {
             </div>
             {/* Row2 */}
             <div className="rounded-lg sm:col-span-6  sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Model
-              </p>
+              <p className="input-label 4xl:text-sm">Model</p>
 
               <SelectComponent
                 value={formik.values.model}
@@ -183,9 +177,7 @@ function InsuranceQuote() {
             </div>
             {/* 2.2 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Variant
-              </p>
+              <p className="input-label 4xl:text-sm">Variant</p>
               <SelectComponent
                 value={formik.values.variant}
                 onChange={(value) =>
@@ -207,12 +199,10 @@ function InsuranceQuote() {
 
             {/* Row3 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Is you car brand new ?
-              </p>
+              <p className="input-label 4xl:text-sm">Is you car brand new ?</p>
 
-              <ul className="grid  grid-cols-12">
-                <li className="mx-2 col-span-6">
+              <ul className="grid  gap-4 grid-cols-2">
+                <li className="">
                   <input
                     type="radio"
                     id="brand_new_car_yes"
@@ -231,7 +221,7 @@ function InsuranceQuote() {
                     </div>
                   </label>
                 </li>
-                <li className="mx-2 col-span-6">
+                <li className="">
                   <input
                     type="radio"
                     id="brand_new_car_no"
@@ -254,11 +244,11 @@ function InsuranceQuote() {
             </div>
             {/* 3.2 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 Are you buying you first car?
               </p>
-              <ul className="grid  grid-cols-2">
-                <li className="mx-2">
+              <ul className="grid  gap-4 grid-cols-2">
+                <li className="">
                   <input
                     type="radio"
                     id="first_car_yes"
@@ -273,7 +263,7 @@ function InsuranceQuote() {
                     </div>
                   </label>
                 </li>
-                <li className="mx-2">
+                <li className="">
                   <input
                     type="radio"
                     id="first_car_no"
@@ -297,7 +287,7 @@ function InsuranceQuote() {
 
             {/* Row4 date*/}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 When was you car first registered?
               </p>
               <input
@@ -305,7 +295,7 @@ function InsuranceQuote() {
                 max={datePickerId}
                 onChange={formik.handleChange}
                 name="car_first_registered"
-                className="border-2 radius-lg  radius-lg rounded-md p-2.5 w-full text-xs "
+                className="input-date "
                 placeholder="Choose Date"
               />
               {formik.errors.car_first_registered ? (
@@ -316,7 +306,7 @@ function InsuranceQuote() {
             </div>
             {/* 4.2 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 In which city do you want to register this car?
               </p>
               <SelectComponent
@@ -345,11 +335,11 @@ function InsuranceQuote() {
 
             {/* Row5 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 Is this car GCC spec AND unmodified?
               </p>
-              <ul className="grid grid-cols-2">
-                <li className="mx-2">
+              <ul className="grid gap-4 grid-cols-2">
+                <li className="">
                   <input
                     type="radio"
                     id="gcc_spec_yes"
@@ -364,7 +354,7 @@ function InsuranceQuote() {
                     </div>
                   </label>
                 </li>
-                <li className="mx-2">
+                <li className="">
                   <input
                     type="radio"
                     id="gcc_spec_no"
@@ -386,11 +376,11 @@ function InsuranceQuote() {
             </div>
             {/* 5.2 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 Is the current policy fully comprehensive?
               </p>
-              <ul className="grid  grid-cols-2">
-                <li className="mx-2">
+              <ul className="grid  gap-4 grid-cols-2">
+                <li className="">
                   <input
                     type="radio"
                     id="is_fully_comprehensive_yes"
@@ -408,7 +398,7 @@ function InsuranceQuote() {
                     </div>
                   </label>
                 </li>
-                <li className="mx-2">
+                <li className="">
                   <input
                     type="radio"
                     id="is_fully_comprehensive_no"
@@ -435,12 +425,12 @@ function InsuranceQuote() {
             </div>
             {/* row6.1 */}
             <div className="rounded-lg sm:col-span-6 sm:block ">
-              <p className="text-sm font-medium my-2 ">
+              <p className="input-label 4xl:text-sm">
                 Does the current policy of this car include agency repair?
               </p>
 
-              <ul className="grid grid-cols-2">
-                <li className="mx-2">
+              <ul className="grid gap-4 grid-cols-2">
+                <li className="">
                   <input
                     type="radio"
                     id="agency_repair_yes"
@@ -458,7 +448,7 @@ function InsuranceQuote() {
                     </div>
                   </label>
                 </li>
-                <li className="mx-2">
+                <li className="">
                   <input
                     type="radio"
                     id="agency_repair_no"
@@ -563,9 +553,7 @@ function InsuranceQuote() {
           <div className="m-4 grid gap-6 sm:grid-cols-12">
             {/* Row1 */}
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Nationality
-              </p>
+              <p className="input-label 4xl:text-sm">Nationality</p>
               <div>
                 <SelectComponent
                   options={carData?.optionsNationalities}
@@ -588,7 +576,7 @@ function InsuranceQuote() {
             </div>
             {/* 1.2 */}
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-medium my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm ">
                 Which country issued your first driving license?
               </p>
               <div className="">
@@ -614,12 +602,12 @@ function InsuranceQuote() {
 
             {/* ROW2 */}
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 How many years of international driving experience do you have?
               </p>
               <input
                 type="text"
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="experience"
                 onChange={formik.handleChange}
                 placeholder="Enter Years of Experience"
@@ -629,13 +617,13 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 How long you have been driving in the UAE?
               </p>
               <input
                 type="text"
                 onChange={formik.handleChange}
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="duration"
                 placeholder="Enter Duration in Years"
               />
@@ -644,13 +632,11 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Full Name{" "}
-              </p>
+              <p className="input-label 4xl:text-sm">Full Name </p>
               <input
                 type="text"
                 onChange={formik.handleChange}
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="full_name"
                 placeholder=" Enter Full Name"
               />
@@ -659,11 +645,9 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Mobile Number
-              </p>
+              <p className="input-label 4xl:text-sm">Mobile Number</p>
               <input
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="mobile_number"
                 type="number"
                 onChange={formik.handleChange}
@@ -674,13 +658,11 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Email Address
-              </p>
+              <p className="input-label 4xl:text-sm">Email Address</p>
               <input
                 type="email"
                 onChange={formik.handleChange}
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="email"
                 placeholder=" Enter Email"
               />
@@ -689,14 +671,12 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
-                Date of Birth
-              </p>
+              <p className="input-label 4xl:text-sm">Date of Birth</p>
               <input
                 type="date"
                 max={datePickerId}
                 onChange={formik.handleChange}
-                className="border-2 radius-lg  radius-lg rounded-md p-3 w-full text-xs"
+                className="input-date"
                 name="dob"
                 placeholder="Choose Date of birth"
               />
@@ -705,7 +685,7 @@ function InsuranceQuote() {
               ) : null}
             </div>
             <div className=" rounded-lg sm:col-span-6 sm:block">
-              <p className="text-sm font-normal my-2 sm:h-10 lg:h-auto">
+              <p className="input-label 4xl:text-sm">
                 Are you looking for Fully Comprehensive insurance, or other
               </p>
               <SelectComponent
@@ -718,9 +698,22 @@ function InsuranceQuote() {
                 isSearchable
                 classNames={{
                   control: () =>
-                    "border-2 border-gray-200 rounded-md p-0 text-xs",
+                    "border-none border-red-800 rounded-md text-xs",
                   menu: () => "text-xs",
                 }}
+                // classNames={{
+                //   control: (state) =>
+                //     state.isFocused ? 'border-red-600' : 'border-grey-300',
+                // }}
+                styles={{
+                  input: (base) => ({
+                    ...base,
+                    'input:focus': {
+                      boxShadow: 'none',
+                    },
+                  }),
+                }}
+              
               />
               {formik.errors.insurance ? (
                 <div className="error-text">{formik.errors.insurance}</div>
@@ -733,7 +726,7 @@ function InsuranceQuote() {
             <div className=" rounded-lg sm:col-span-6 sm:block">
               <button
                 onClick={() => props.prev(formik.values)}
-                className=" lg:w-auto md:w-auto w-full py-4 px-16 text-xs md:my-auto my-2  bg-blue-700 rounded-3xl sm:float-left text-white "
+                className=" lg:w-auto md:w-auto w-full py-4 px-16 text-xs md:my-auto my-2  bg-blue-600 rounded-3xl sm:float-left text-white "
                 type="button"
               >
                 Back
@@ -742,7 +735,7 @@ function InsuranceQuote() {
             <div className=" rounded-lg sm:col-span-6 sm:block">
               <button
                 // onClick={() => props.next(values, true)}
-                className=" lg:w-auto  md:w-auto w-full py-4 px-12 text-xs md:my-auto my-2 bg-blue-700 rounded-3xl sm:float-right text-white "
+                className=" lg:w-auto  md:w-auto w-full py-4 px-12 text-xs md:my-auto my-2 bg-blue-600 rounded-3xl sm:float-right text-white "
                 type="submit"
               >
                 Get Quote

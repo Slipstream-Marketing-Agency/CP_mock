@@ -45,6 +45,16 @@ body {
     @apply text-red-500 font-semibold text-xs;
   }
   .label-radio-btn {
-    @apply inline-flex items-center justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border dark:border-gray-300 dark:peer-checked:text-black peer-checked:border-black peer-checked:border-2 peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100;
+    @apply text-xs inline-flex justify-center w-full p-2 text-black bg-white  border-gray-300 rounded-lg cursor-pointer dark:hover:text-gray-300 border dark:border-gray-200 dark:peer-checked:text-black peer-checked:border-black peer-checked:border-2 peer-checked:text-black hover:text-gray-100 hover:bg-gray-100 dark:text-gray-400  dark:hover:bg-gray-100;
   }
+
+  .input-label {
+    @apply sm:text-xs font-semibold my-3 sm:h-10 lg:h-auto;
+  }
+
+  .input-date{
+    @apply border border-gray-200 rounded-md p-2.5 w-full text-xs;
+  }
+
 }
+

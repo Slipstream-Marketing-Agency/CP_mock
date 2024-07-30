@@ -1,6 +1,23 @@
 "use client";
 import Select from "react-select";
 
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    fontSize:"12px",
+    borderColor: "#e5e7eb", 
+    boxShadow: "none", // Optional: remove default shadow
+    "&:hover": {
+      borderColor: "black", // Tailwind's blue-600 color
+    },
+  }),
+  menu: (provided) => ({
+    ...provided,
+    fontSize:"12px",
+    zIndex: 9999, // Ensure menu appears on top
+  }),
+};
+
 export default function SelectComponent({
   onChange,
   options,
@@ -18,7 +35,8 @@ export default function SelectComponent({
         onChange={(value) => onChange(value)}
         placeholder={placeholder}
         options={options}
-        classNames={classNames}
+        // classNames={classNames}
+        styles={customStyles}
       />
     </div>
   );

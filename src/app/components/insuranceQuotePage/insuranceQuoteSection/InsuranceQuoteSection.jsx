@@ -28,8 +28,8 @@ function InsuranceQuote() {
     country: "",
     experience: "",
     duration: "",
-    registration_date: "",
-    claimed_date: "",
+    // registration_date: "",
+    // claimed_date: "",
     full_name: "",
     mobile_number: "",
     email: "",
@@ -37,8 +37,6 @@ function InsuranceQuote() {
   };
   const [data, setData] = useState(dataInitialValues);
   const datePickerId = new Date().toISOString().split("T")[0];
-  // console.log(data, "data")
-
   //StepOne
   const StepOne = (props) => {
     const handleSubmit = (values) => {
@@ -88,18 +86,17 @@ function InsuranceQuote() {
       // validateOnChange:false,
       // validateOnBlur:false,
       initialValues: {
-        car_year: data.car_year,
-        car_brand: data.car_brand,
-        model: data.model,
-        variant: data.variant,
-        is_fully_comprehensive: data.is_fully_comprehensive,
-        brand_new_car: data.brand_new_car,
-        car_first_registered: data.car_first_registered,
-        first_car: data.first_car,
-        city: data.city,
-        gcc_spec: data.gcc_spec,
-
-        agency_repair: data.agency_repair,
+        car_year: "",
+        car_brand: "",
+        model: "",
+        variant: "",
+        is_fully_comprehensive: "",
+        brand_new_car: "",
+        car_first_registered: "",
+        first_car: "",
+        city: "",
+        gcc_spec: "",
+        agency_repair: "",
       },
       validate,
       onSubmit: (value) => {
@@ -534,8 +531,8 @@ function InsuranceQuote() {
         country: "",
         experience: "",
         duration: "",
-        registration_date: "",
-        claimed_date: "",
+        // registration_date: data.registration_date,
+        // claimed_date: data.claimed_date,
         full_name: "",
         mobile_number: "",
         email: "",
@@ -696,11 +693,11 @@ function InsuranceQuote() {
                 options={carData.optionsInsurance}
                 placeholder={"Choose"}
                 isSearchable
-                classNames={{
-                  control: () =>
-                    "border-none border-red-800 rounded-md text-xs",
-                  menu: () => "text-xs",
-                }}
+                // classNames={{
+                //   control: () =>
+                //     "border-none border-red-800 rounded-md text-xs",
+                //   menu: () => "text-xs",
+                // }}
                 // classNames={{
                 //   control: (state) =>
                 //     state.isFocused ? 'border-red-600' : 'border-grey-300',
@@ -708,12 +705,11 @@ function InsuranceQuote() {
                 styles={{
                   input: (base) => ({
                     ...base,
-                    'input:focus': {
-                      boxShadow: 'none',
+                    "input:focus": {
+                      boxShadow: "none",
                     },
                   }),
                 }}
-              
               />
               {formik.errors.insurance ? (
                 <div className="error-text">{formik.errors.insurance}</div>
@@ -749,7 +745,6 @@ function InsuranceQuote() {
 
   const makeRequest = (formData) => {
     setIsOpen(true);
-    setData(dataInitialValues);
     setCurrentStep(0);
     console.log(formData, "Form submitted");
   };

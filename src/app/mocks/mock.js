@@ -53,6 +53,7 @@ export const carData = {
     { value: "UAE", label: "UAE" },
     { value: "Philipines", label: "Philipines" },
     { value: "Russia", label: "Russia" },
+    { value: "Brazil", label: "Brazil" },
   ],
   optionsInsurance: [
     { value: "fullyComprehensive", label: "Fully Comprehensive" },

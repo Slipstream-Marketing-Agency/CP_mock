@@ -49,7 +49,7 @@ body {
   }
 
   .input-label {
-    @apply sm:text-xs font-semibold my-3 sm:h-10 lg:h-auto;
+    @apply sm:text-sm font-semibold my-3 sm:h-10 lg:h-auto;
   }
 
   .input-date{

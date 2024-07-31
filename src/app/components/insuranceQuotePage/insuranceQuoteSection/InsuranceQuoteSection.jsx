@@ -120,12 +120,6 @@ function InsuranceQuote() {
                 }
                 placeholder={"Choose Year"}
                 isSearchable
-                classNames={{
-                  control: () =>
-                    "border-2 border-gray-200 rounded-md p-0 text-xs",
-                  // "border-2 border-gray-200 rounded-md  text-xs",
-                  menu: () => "text-xs",
-                }}
               />
               {formik.errors.car_year ? (
                 <div className="error-text">{formik.errors.car_year}</div>
@@ -142,11 +136,6 @@ function InsuranceQuote() {
                 options={carData?.optionsBrand}
                 placeholder={"Choose Brand"}
                 isSearchable
-                classNames={{
-                  control: () =>
-                    "border-2 border-gray-200 rounded-md p-0 text-xs",
-                  menu: () => "text-xs",
-                }}
               />
               {formik.errors.car_brand ? (
                 <div className="error-text">{formik.errors.car_brand}</div>
@@ -162,11 +151,6 @@ function InsuranceQuote() {
                 options={carData?.optionsModels}
                 placeholder={"Choose Model"}
                 isSearchable
-                classNames={{
-                  control: () =>
-                    "border-2 border-gray-200 rounded-md p-0 text-xs",
-                  menu: () => "text-xs",
-                }}
               />
               {formik.errors.model ? (
                 <div className="error-text">{formik.errors.model}</div>
@@ -183,11 +167,6 @@ function InsuranceQuote() {
                 options={carData?.optionsVariants}
                 placeholder={"Choose Variant"}
                 isSearchable
-                classNames={{
-                  control: () =>
-                    "border-2 border-gray-200 rounded-md p-0 text-xs",
-                  menu: () => "text-xs",
-                }}
               />
               {formik.errors.variant ? (
                 <div className="error-text">{formik.errors.variant}</div>
@@ -312,18 +291,6 @@ function InsuranceQuote() {
                 options={carData?.optionsCities}
                 placeholder={"Choose City"}
                 isSearchable
-                classNames={{
-                  control: () => "text-xs",
-                  borderColor: "black",
-                  // control: ({  }) => (
-                  //   "text-xs",
-                  //   // borderColor: "border red-500",
-                  //   // '&:hover': {
-                  //   //   borderColor: "green"
-                  //   // }
-                  // ),
-                  menu: () => "text-xs",
-                }}
               />
               {formik.errors.city ? (
                 <div className="error-text">{formik.errors.city}</div>
@@ -560,11 +527,7 @@ function InsuranceQuote() {
                   }
                   placeholder={"Choose Nationality"}
                   isSearchable
-                  classNames={{
-                    control: () =>
-                      "border-2 border-gray-200 rounded-md p-0 text-xs",
-                    menu: () => "text-xs",
-                  }}
+
                 />
                 {formik.errors.nationality ? (
                   <div className="error-text">{formik.errors.nationality}</div>
@@ -585,11 +548,7 @@ function InsuranceQuote() {
                   options={carData.optionsCountry}
                   placeholder={"Choose Country"}
                   isSearchable
-                  classNames={{
-                    control: () =>
-                      "border-2 border-gray-200 rounded-md p-0 text-xs",
-                    menu: () => "text-xs",
-                  }}
+
                 />
                 {formik.errors.country ? (
                   <div className="error-text">{formik.errors.country}</div>
@@ -693,23 +652,6 @@ function InsuranceQuote() {
                 options={carData.optionsInsurance}
                 placeholder={"Choose"}
                 isSearchable
-                // classNames={{
-                //   control: () =>
-                //     "border-none border-red-800 rounded-md text-xs",
-                //   menu: () => "text-xs",
-                // }}
-                // classNames={{
-                //   control: (state) =>
-                //     state.isFocused ? 'border-red-600' : 'border-grey-300',
-                // }}
-                styles={{
-                  input: (base) => ({
-                    ...base,
-                    "input:focus": {
-                      boxShadow: "none",
-                    },
-                  }),
-                }}
               />
               {formik.errors.insurance ? (
                 <div className="error-text">{formik.errors.insurance}</div>

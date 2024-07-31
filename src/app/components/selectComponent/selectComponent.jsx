@@ -5,7 +5,9 @@ const customStyles = {
   control: (provided) => ({
     ...provided,
     fontSize:"12px",
-    borderColor: "#e5e7eb", 
+    borderColor: "#e5e7eb",
+    borderRadius:"5px",
+    padding:"1.5px",
     boxShadow: "none", // Optional: remove default shadow
     "&:hover": {
       borderColor: "black", // Tailwind's blue-600 color
@@ -23,7 +25,6 @@ export default function SelectComponent({
   options,
   value,
   placeholder,
-  classNames,
 }) {
   const defaultValue = (options, value) => {
     return options ? options.find((option) => option.value === value) : "";
@@ -35,7 +36,6 @@ export default function SelectComponent({
         onChange={(value) => onChange(value)}
         placeholder={placeholder}
         options={options}
-        // classNames={classNames}
         styles={customStyles}
       />
     </div>

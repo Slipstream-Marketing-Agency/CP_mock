@@ -1,7 +1,7 @@
 "use client";
 import Select from "react-select";
 import { useFormik } from "formik";
-import SelectComponent from "../../selectComponent/selectComponent";
+import SelectComponent from "../../common/selectComponent/selectComponent";
 import { useState } from "react";
 import Stepper from "../3stepper/Stepper";
 import { carData } from "../../../mocks/mock";

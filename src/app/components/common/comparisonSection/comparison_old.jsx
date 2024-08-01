@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { carData } from "../../../mocks/mock";
+
+import { carData } from "../../mocks/mock";
 export default function ComparisonSection() {
   return (
     <div className="my-6">
@@ -24,10 +25,10 @@ export default function ComparisonSection() {
                   <div className="text-blue-500 text-xs font-semibold">
                     {item.brand1}
                   </div>
-                  <div className="text-md text-gray-600">
-                    {item.model1}
+                  <div className="text-md text-gray-600">{item.model1}</div>
+                  <div className="font-bold text-md sm:hidden">
+                    {item.price1}
                   </div>
-                  <div className="font-bold text-md sm:hidden">{item.price1}</div>
                 </div>
               </div>
 
@@ -54,16 +55,20 @@ export default function ComparisonSection() {
                   <div className="text-blue-500 text-xs font-semibold">
                     {item.brand2}
                   </div>
-                  <div className="text-md  text-gray-600">
-                    {item.model2}
+                  <div className="text-md  text-gray-600">{item.model2}</div>
+                  <div className="font-bold text-md sm:hidden">
+                    {item.price2}
                   </div>
-                  <div className="font-bold text-md sm:hidden">{item.price2}</div>
                 </div>
               </div>
             </div>
             <div className="grid sm:grid-cols-12 md:grid hidden mx-2 mb-4">
-              <div className="sm:col-span-6 text-sm font-semibold">{item.price1}</div>
-              <div className="sm:col-span-6 text-sm font-semibold mx-4">{item.price2}</div>
+              <div className="sm:col-span-6 text-sm font-semibold">
+                {item.price1}
+              </div>
+              <div className="sm:col-span-6 text-sm font-semibold mx-4">
+                {item.price2}
+              </div>
             </div>
 
             <button className="bg-button-bg text-xs xl:text-sm font-thin text-white rounded-2xl justify-center text-center my-2 px-4 py-2 w-full">

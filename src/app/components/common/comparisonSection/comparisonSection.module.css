@@ -1,0 +1,12 @@
+.sliderWrapper :global .slick-list .slick-track {
+    @apply my-[0] -mx-[10] bg-red-400;
+  }
+  
+  .sliderWrapper2 :global .slick-slider {
+    margin-inline: -30px;
+  }
+  
+  .sliderWrapper3 :global .slick-slide  > div {
+      margin-inline: 10px;
+  }
+  

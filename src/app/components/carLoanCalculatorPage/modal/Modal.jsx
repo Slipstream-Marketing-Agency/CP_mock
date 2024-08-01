@@ -1,4 +1,4 @@
-import FormikSelect from "../../formikSelect/FormikSelect";
+// import FormikSelect from "../../formikSelect/FormikSelect";
 import FormikSearchComponent from "../SearchComponent/FormikSearchComponent";
 function Modal({ modal, setIsOpen, setCarSelected }) {
   return (

@@ -9,7 +9,7 @@ function Sidebar2() {
             <Image src="/sideBar-icon.svg" width={250} height={250} className="" />
             <div className="text-lg font-medium ">{carLoanPage.carWorthSection.heading}</div>
             <div className="text-xs font-thin my-2 text-gray-300">{carLoanPage.carWorthSection.para}</div>
-            <button className="text-sm font-medium">{carLoanPage.carWorthSection.button}</button>
+            <button className="text-sm font-medium">{carLoanPage.carWorthSection.button}  &gt;</button>
             {/* <Image src={ArrowForwardIcon} width={64} height={64} className="" /> */}
         </div>
     )

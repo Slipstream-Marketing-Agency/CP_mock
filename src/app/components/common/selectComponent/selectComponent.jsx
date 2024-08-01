@@ -1,6 +1,5 @@
 "use client";
 import Select from "react-select";
-
 const customStyles = {
   control: (provided) => ({
     ...provided,
@@ -8,15 +7,15 @@ const customStyles = {
     borderColor: "#e5e7eb",
     borderRadius:"5px",
     padding:"1.5px",
-    boxShadow: "none", // Optional: remove default shadow
+    boxShadow: "none",
     "&:hover": {
-      borderColor: "black", // Tailwind's blue-600 color
+      borderColor: "black",
     },
   }),
   menu: (provided) => ({
     ...provided,
     fontSize:"12px",
-    zIndex: 9999, // Ensure menu appears on top
+    zIndex: 9999,
   }),
 };
 

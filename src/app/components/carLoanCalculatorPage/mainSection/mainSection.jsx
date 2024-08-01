@@ -1,8 +1,8 @@
 import { carLoanPage } from "../../../mocks/labels";
-import ChooseCarDiv from "../chooseCarDiv/ChooseCarDiv";
+import ChooseCarDiv from "../chooseCarDiv/old/ChooseCarDiv_old";
 import BannerSection from "../bannerSection/bannerSection";
 import DimensionSection from "../dimensionsSection/DimensionSection";
-import ComparisonSection from "../comparisonSection/ComparisonSection";
+import ComparisonSection from "../../common/comparisonSection/ComparisonSection";
 import FrequentlySearched from "../frequentlySearched/FrequentlySearched";
 import LoanDetails from "../loanDetails/LoanDetails";
 import { useState, useEffect } from "react";

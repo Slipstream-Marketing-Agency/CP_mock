@@ -1,24 +1,11 @@
-// import Header from "../../components/insuranceQuotePage/header/Header";
-// import Footer from "../../components/insuranceQuotePage/footer/Footer";
-// import ComparisonSection from "../../components/insuranceQuotePage/comparisonSection/ComparisonSection";
-// import RecommendationDiv from "../../components/insuranceQuotePage/recommendationDiv/RecommendationDiv";
-
-//
-// import HorizontalLinearStepper from "../../components/stepper/Stepper";
-// import Stepper2 from "../../components/stepper2/Stepper2";
-// import { Formikselect } from "../../components/Formikselect";
-// import InsuranceQuote2 from "../../components/insuranceQuote/InsuranceQuote2";
-// import SelectComponent from "../../components/selectComponent/selectComponent";
-// import InsuranceQuote_old from "../../components/insuranceQuotePage/insuranceQuoteSection/InsuranceQuoteSection_old";
-
 import InsuranceQuote from "../../components/insuranceQuotePage/insuranceQuoteSection/InsuranceQuoteSection";
 import ChooseYourBrand from "../../components/insuranceQuotePage/chooseYourBrand/ChooseYourBrand";
 import DimensionSection from "../../components/insuranceQuotePage/dimensionsSection/DimensionSection";
-import ComparisonSection from "../../components/carLoanCalculatorPage/comparisonSection/ComparisonSection";
+import ComparisonSection from "../../components/common/comparisonSection/ComparisonSection";
 import Sidebar2 from "../../components/insuranceQuotePage/sidebar2/Sidebar2";
 import SideBar1 from "../../components/insuranceQuotePage/sidebar1/Sidebar1";
 
-import ChooseCarDiv from "../../components/insuranceQuotePage/chooseCarDiv/ChooseCarDiv";
+import ChooseCarDiv from "../../components/insuranceQuotePage/recommendationDiv/RecommendationDiv";
 
 function InsuranceCalculatorPage() {
   return (
@@ -35,12 +22,6 @@ function InsuranceCalculatorPage() {
           <ChooseYourBrand />
           <DimensionSection />
           <ComparisonSection />
-
-          {/* <Formikselect /> */}
-          {/* <InsuranceQuote_old /> */}
-          {/* <SelectComponent /> */}
-          {/* <HorizontalLinearStepper /> */}
-          {/* <Stepper2 /> */}
         </div>
       </div>
     </section>

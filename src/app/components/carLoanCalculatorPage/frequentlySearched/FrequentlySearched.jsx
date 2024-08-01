@@ -2,10 +2,10 @@ import { carData } from "../../../mocks/mock";
 export default function FrequentlySearched() {
   return (
     <div>
-      <div className=" text-blue-600 font-bold text-sm uppercase">
+      <div className=" heading-blue">
         Frequently searched
       </div>
-      <div className="font-semibold text-2xl leading-9">
+      <div className="heading ">
         What Others Are Searching For ?
       </div>
 

@@ -39,7 +39,7 @@ body {
     @apply text-blue-600 font-bold text-xs uppercase;
   }
   .heading {
-    @apply font-semibold text-2xl leading-9 mb-6;
+    @apply font-semibold sm:text-2xl leading-9 mb-6 text-lg;
   }
   .error-text {
     @apply text-red-500 font-semibold text-xs;
@@ -49,7 +49,7 @@ body {
   }
 
   .input-label {
-    @apply sm:text-sm font-semibold my-3 sm:h-10 lg:h-auto;
+    @apply sm:text-xs font-semibold my-3;
   }
 
   .input-date{

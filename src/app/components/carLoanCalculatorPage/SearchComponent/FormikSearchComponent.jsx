@@ -6,11 +6,11 @@ import { useState, useEffect } from "react";
 function FormikSearchComponent({ setIsOpen, setCarSelected }) {
   const [data, setData] = useState({
     brand: "",
+    brand_icon:"",
     model: "",
     year: "",
     variant: "",
   });
-  console.log(data, "Datata");
   useEffect(() => {
     // setData((prevData) => ({
     //   ...prevData,
@@ -47,9 +47,12 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
           <SearchComponent
             options={carData?.chooseBrandModal}
             fieldValue={"brand"}
+            fieldValue2={"brand_icon"}
             placeholder={"Search brand"}
             Formik={formik}
             data={data}
+            setCurrentStep={props.setCurrentStep}
+
           />
           {formik.errors.brand ? (
             <div className="text-red-400">{formik.errors.brand}</div>
@@ -92,6 +95,8 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
             placeholder={"Search model"}
             Formik={formik}
             data={data}
+            setCurrentStep={props.setCurrentStep}
+
           />
 
           {formik.errors.model ? (
@@ -107,7 +112,6 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
     const handleSubmit = (values) => {
       props.next(values, false);
     };
-
     const validate = (values) => {
       const errors = {};
       // if (!values.year) {
@@ -135,6 +139,7 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
             placeholder={"Search year"}
             Formik={formik}
             data={data}
+            setCurrentStep={props.setCurrentStep}
           />
 
           {formik.errors.year ? (
@@ -177,6 +182,7 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
             placeholder={"Search variant"}
             Formik={formik}
             data={data}
+            setCurrentStep={props.setCurrentStep}
           />
           {formik.errors.variant ? (
             <div className="text-red-400">{formik.errors.variant}</div>
@@ -208,10 +214,10 @@ function FormikSearchComponent({ setIsOpen, setCarSelected }) {
 
   const [currentStep, setCurrentStep] = useState(0);
   const steps = [
-    <StepOne next={handleNextStep} data={data} />,
-    <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />,
-    <StepThree next={handleNextStep} prev={handlePrevStep} data={data} />,
-    <StepFour next={handleNextStep} prev={handlePrevStep} data={data} />,
+    <StepOne next={handleNextStep} data={data} setCurrentStep={setCurrentStep}/>,
+    <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} setCurrentStep={setCurrentStep} />,
+    <StepThree next={handleNextStep} prev={handlePrevStep} data={data} setCurrentStep={setCurrentStep} />,
+    <StepFour next={handleNextStep} prev={handlePrevStep} data={data} setCurrentStep={setCurrentStep}/>,
   ];
 
   return (

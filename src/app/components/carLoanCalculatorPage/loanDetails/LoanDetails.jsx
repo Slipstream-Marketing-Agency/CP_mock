@@ -4,7 +4,7 @@ import { Chart, registerables } from "chart.js";
 import Image from "next/image";
 Chart.register(...registerables);
 
-const LoanDetails = () => {
+const LoanDetails = ({ setIsOpen }) => {
   const [P, setP] = useState(33100);
   const [R, setR] = useState(1.9);
   const [N, setN] = useState(1);
@@ -88,7 +88,10 @@ const LoanDetails = () => {
           </div>
         </div>
         <div className="mt-4">
-          <button className=" py-4 px-12 text-sm bg-blue-700 rounded-3xl text-white w-full">
+          <button
+            onClick={setIsOpen}
+            className=" py-4 px-12 text-sm bg-blue-700 rounded-3xl text-white w-full"
+          >
             Change Car
           </button>
         </div>
@@ -177,7 +180,7 @@ const LoanDetails = () => {
             {/* doughnut chart*/}
             <div className="sm:col-span-6 sm:block">
               <Doughnut className="w-2/3" data={pieData} />
-              <div className="flex justify-between w-full my-4">
+              <div className="flex text-sm sm:text-base justify-between w-full my-4">
                 <div className="flex justify-between">
                   <p id="price-container" className="opacity-70 mt-0">
                     Monthly EMI
@@ -193,8 +196,8 @@ const LoanDetails = () => {
                   </span>
                 </div>
               </div>
-              <div className="text-center  font-semibold flex justify-between bg-gray-100 rounded-lg p-6">
-                <div className="">Total Amount Payable</div>
+              <div className="text-center text-sm sm:text-base font-semibold flex justify-between bg-gray-100 rounded-lg p-6">
+                <div className="">Total Amount Payable:</div>
                 <div id="ct" className="text-gray-800">
                   AED {(P + payableInterest).toLocaleString("en-US")}*
                 </div>

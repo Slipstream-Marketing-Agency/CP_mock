@@ -5,25 +5,38 @@ import DimensionSection from "../dimensionsSection/DimensionSection";
 import ComparisonSection from "../../common/comparisonSection/ComparisonSection";
 import FrequentlySearched from "../frequentlySearched/FrequentlySearched";
 import LoanDetails from "../loanDetails/LoanDetails";
+import Modal from "../modal/Modal";
 import { useState, useEffect } from "react";
 function mainSection() {
   const [carSelected, setCarSelected] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (carSelected) {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
       document.body.style.overflow = "";
     }
-  }, [carSelected]);
+  }, [isOpen]);
 
   return (
     <div className="">
       <div className="text-3xl my-2">{carLoanPage.heading1}</div>
       <div className="font-thin">{carLoanPage.para1}</div>
+      <Modal
+        modal={isOpen}
+        setIsOpen={setIsOpen}
+        setCarSelected={setCarSelected}
+      />
       {/* bannersection */}
       {carSelected ? (
-        <LoanDetails />
+        <LoanDetails setIsOpen={setIsOpen} />
       ) : (
-        <BannerSection setCarSelected={setCarSelected} />
+        <BannerSection
+          modal={isOpen}
+          setIsOpen={setIsOpen}
+          setCarSelected={setCarSelected}
+        />
       )}
       {/* section2 */}
       <div>

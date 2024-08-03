@@ -3,8 +3,11 @@ import Header from "../../components/common/header/Header";
 import Sidebar from "../../components/compareCarsPage/sidebar/Sidebar";
 import SelectedCarsDiv from "../../components/compareCarsPage/selectedCarsDiv/SelectedCarsDiv";
 import DetailsDiv from "../../components/compareCarsPage/detailsDiv/DetailsDiv";
+import ComparisonSection from "../../components/common/comparisonSection/ComparisonSection";
+import DimensionSection from "../../components/carLoanCalculatorPage/dimensionsSection/DimensionSection";
 import { carData } from "../../mocks/mock";
 function compareCars() {
+  const basicInformationSections = ["Model", "Price", "Type"];
   return (
     <>
       {/* <Header /> */}
@@ -44,8 +47,28 @@ function compareCars() {
         <section>
           <DetailsDiv
             heading={"Basic Information"}
+            sections={basicInformationSections}
             data={carData.compareCarsDetails.BasicInformation}
           />
+          <DetailsDiv
+            heading={"Engine & Transmssion Details"}
+            data={carData.compareCarsDetails.Engine_and_Transmssion_Details}
+          />
+          <DetailsDiv
+            heading={"Fuel Efficiency"}
+            data={carData.compareCarsDetails.FuelEfficiency}
+          />
+          <DetailsDiv
+            heading={"Performance"}
+            data={carData.compareCarsDetails.performance}
+          />
+        </section>
+        <section className="px-52">
+            <DimensionSection />
+        </section>
+        <section className="sm:px-52 px-6 my-4">
+        <ComparisonSection />
+
         </section>
       </section>
     </>

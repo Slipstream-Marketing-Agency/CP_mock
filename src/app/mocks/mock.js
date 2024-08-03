@@ -312,60 +312,106 @@ export const carData = {
     },
   ],
   compareCarsDetails: {
-  BasicInformation: [
-      { model: "M2 Coupe M Steptronic", price: "AED 165,500", type: "Coupe" },
-      { model: "1 Series 120i", price: "AED 204,510", type: "Hatch Back" },
-      {
-        model: "2 Series Coupe M240i xDRIVE",
-        price: "AED 295,000",
-        type: "Coupe",
-      },
-    ],
-    Engine_and_Transmssion_Details: [
-      {
-        cylinders: 6,
-        displacement: 3000,
-        power: 460,
-        torque: 550,
-        fuelType: "Petrol",
-        drive: "Rear Wheel Drive",
-        transmission: "Automatic",
-        gears: "8-speed",
-      },
-      {
-        cylinders: 4,
-        displacement: 1600,
-        power: 177,
-        torque: 250,
-        fuelType: "Petrol",
-        drive: "Front Wheel Drive",
-        transmission: "Automatic",
-        gears: "8-speed",
-      },
-      {
-        cylinders: 6,
-        displacement: 3000,
-        power: 374,
-        torque: 500,
-        fuelType: "Petrol",
-        drive: "All Wheel Drive",
-        transmission: "Automatic",
-        gears: "8-speed",
-      },
-    ],
-    FuelEfficiency: [
-      {
-        fuelTank: 52,
-        consumption: 10.4,
-      },
-      {
-        fuelTank: 25,
-        consumption: 12.4,
-      },
-      {
-        fuelTank: 13,
-        consumption: 14.0,
-      },
-    ],
+    BasicInformation: {
+      sections: [
+        { header: "Model", field: "model" },
+        { header: "Price", field: "price" },
+        { header: "Type", field: "type" },
+      ],
+      details: [
+        { model: "M2 Coupe M Steptronic", price: "AED 165,500", type: "Coupe" },
+        { model: "1 Series 120i", price: "AED 204,510", type: "Hatch Back" },
+        {
+          model: "2 Series Coupe M240i xDRIVE",
+          price: "AED 295,000",
+          type: "Coupe",
+        },
+      ],
+    },
+    Engine_and_Transmssion_Details: {
+      sections: [
+        { header: "No. of Cylinders", field: "cylinders" },
+        { header: "Displacement (cc)", field: "displacement" },
+        { header: "Power (hp)", field: "power" },
+        { header: "Peak Torque (Nm)", field: "torque" },
+        { header: "Fuel Type", field: "fuelType" },
+        { header: "Drive", field: "drive" },
+        { header: "Transmission Type", field: "transmission" },
+        { header: "No. of Gears", field: "gears" },
+      ],
+
+      details: [
+        {
+          cylinders: 6,
+          displacement: 3000,
+          power: 460,
+          torque: 550,
+          fuelType: "Petrol",
+          drive: "Rear Wheel Drive",
+          transmission: "Automatic",
+          gears: "8-speed",
+        },
+        {
+          cylinders: 4,
+          displacement: 1600,
+          power: 177,
+          torque: 250,
+          fuelType: "Petrol",
+          drive: "Front Wheel Drive",
+          transmission: "Automatic",
+          gears: "8-speed",
+        },
+        {
+          cylinders: 6,
+          displacement: 3000,
+          power: 374,
+          torque: 500,
+          fuelType: "Petrol",
+          drive: "All Wheel Drive",
+          transmission: "Automatic",
+          gears: "8-speed",
+        },
+      ],
+    },
+    FuelEfficiency: {
+      sections: [
+        { header: "Fuel Tank Size (L)", field: "fuelTank" },
+        { header: "Fuel Consumption (kmpl)", field: "consumption" },
+      ],
+      details: [
+        {
+          fuelTank: 52,
+          consumption: 10.4,
+        },
+        {
+          fuelTank: 25,
+          consumption: 12.4,
+        },
+        {
+          fuelTank: 13,
+          consumption: 14.0,
+        },
+      ],
+    },
+    performance: {
+      sections: [
+        { header: "O to 100(s)", field: "accelaration" },
+        { header: "Top Speed (km/h)", field: "topspeed" },
+      ],
+      details: [
+        {
+          accelaration: 4.1,
+          topspeed: 250,
+        },
+        {
+          accelaration: 4.1,
+          topspeed: 250,
+        },
+        {
+          accelaration: 4.1,
+          topspeed: 250,
+        },
+      ],
+    },
   },
 };

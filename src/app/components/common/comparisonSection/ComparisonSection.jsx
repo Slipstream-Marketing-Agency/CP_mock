@@ -65,7 +65,9 @@ export default function ComparisonSection() {
                       className="mx-auto mb-2"
                     />
                     <div className="brand-label">{item.brand1}</div>
-                    <div className="text-sm font-semibold text-gray-600">{item.model1}</div>
+                    <div className="text-sm font-semibold text-gray-600">
+                      {item.model1}
+                    </div>
                     <div className="font-bold text-md sm:hidden">
                       {item.price1}
                     </div>
@@ -73,7 +75,10 @@ export default function ComparisonSection() {
                 </div>
 
                 <div className="sm:col-span-1 border-r h-1/2  my-4 sm:block hidden  ">
-                  <div className=" bg-button-bg h-6 w-6 p-[25%] my-7 mx-[40%]  rounded-xl text-xs text-white ">
+                  {/* <div className=" bg-button-bg h-6 w-6 p-[25%] my-7 mx-[40%]  rounded-xl text-xs text-white ">
+                    Vs
+                  </div> */}
+                  <div className="bg-button-bg h-6 w-6 flex items-center justify-center my-7 mx-[40%] rounded-xl text-xs text-white">
                     Vs
                   </div>
                 </div>
@@ -93,7 +98,9 @@ export default function ComparisonSection() {
                       className="mx-auto mb-2 "
                     />
                     <div className="brand-label">{item.brand2}</div>
-                    <div className="text-sm font-semibold  text-gray-600">{item.model2}</div>
+                    <div className="text-sm font-semibold  text-gray-600">
+                      {item.model2}
+                    </div>
                     <div className="font-bold text-md sm:hidden">
                       {item.price2}
                     </div>

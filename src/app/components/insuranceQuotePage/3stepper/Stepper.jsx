@@ -4,27 +4,23 @@ export default function Stepper({ step, setCurrentStep }) {
       <div className="flex mt-4 ">
         <div
           onClick={() => setCurrentStep(0)}
-          className={`${
-            step === 2
-              ? "bg-green-500 h-6 w-6 p-1 px-2 mx-3 rounded-xl text-xs text-white cursor-pointer"
-              : " bg-blue-500 h-6 w-6  mx-3 rounded-xl text-xs text-white cursor-pointer p-1 px-2"
-          } `}
+          className={`p-2 mx-3 h-6 w-10 rounded-xl text-xs text-white cursor-pointer flex items-center justify-center ${
+            step === 2 ? "bg-green-500" : "bg-blue-500"
+          }`}
         >
           1
         </div>
         <div className="bg-slate-200 my-3 h-[3px] w-full">
           <hr
-            className={`${
-              step === 2
-                ? "h-[2px] w-full bg-green-500 border-0"
-                : "h-[2px] w-1/2 bg-blue-700 border-0"
+            className={`h-[2px]  border-0${
+              step === 2 ? " w-full bg-green-500 " : " w-1/2   bg-blue-700"
             } `}
           />
         </div>
 
         <div
           onClick={() => setCurrentStep(1)}
-          className=" bg-blue-500 h-6 w-6 p-2 py-1 mx-3 rounded-xl text-xs text-white cursor-pointer"
+          className=" bg-blue-500  h-6 p-2 w-10  mx-3 rounded-xl text-xs text-white cursor-pointer flex items-center justify-center"
         >
           2
         </div>
@@ -35,7 +31,7 @@ export default function Stepper({ step, setCurrentStep }) {
             } `}
           />
         </div>
-        <div className=" bg-blue-500 h-6 w-6 p-2 py-1 mx-3 rounded-xl text-xs text-white">
+        <div className=" bg-blue-500  p-2 h-6 w-10  mx-3 rounded-xl text-xs text-white flex items-center justify-center">
           3
         </div>
       </div>

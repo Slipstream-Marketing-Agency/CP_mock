@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -49,12 +49,8 @@ export default function ComparisonSection() {
   };
   return (
     <div className="my-6">
-      <div className=" heading-blue">
-        WHAT'S THE BEST ?
-      </div>
-      <div className="heading">
-        Popular Car Comparison
-      </div>
+      <div className=" heading-blue">WHAT'S THE BEST ?</div>
+      <div className="heading">Popular Car Comparison</div>
       <div className={`${styles.sliderWrapper3} my-4 px-2 w-screen md:w-auto`}>
         <Slider {...settings}>
           {carData.carComparison.map((item, index) => (
@@ -68,10 +64,8 @@ export default function ComparisonSection() {
                       height={300}
                       className="mx-auto mb-2"
                     />
-                    <div className="text-blue-500 text-xs font-semibold">
-                      {item.brand1}
-                    </div>
-                    <div className="text-md text-gray-600">{item.model1}</div>
+                    <div className="brand-label">{item.brand1}</div>
+                    <div className="text-sm font-semibold text-gray-600">{item.model1}</div>
                     <div className="font-bold text-md sm:hidden">
                       {item.price1}
                     </div>
@@ -79,13 +73,13 @@ export default function ComparisonSection() {
                 </div>
 
                 <div className="sm:col-span-1 border-r h-1/2  my-4 sm:block hidden  ">
-                  <div className=" bg-blue-500 h-6 w-6 p-1 my-7  rounded-xl text-xs text-white ">
+                  <div className=" bg-button-bg h-6 w-6 p-[25%] my-7 mx-[40%]  rounded-xl text-xs text-white ">
                     Vs
                   </div>
                 </div>
 
                 <div className="md:hidden sm:col-span-12 border-b-2 mx-2">
-                  <div className=" bg-blue-500 h-6 w-6 mx-auto -my-3 p-1 rounded-xl text-xs text-white">
+                  <div className=" bg-button-bg h-6 w-6 mx-auto -my-3 p-1 rounded-xl text-xs text-white">
                     Vs
                   </div>
                 </div>
@@ -98,21 +92,19 @@ export default function ComparisonSection() {
                       height={300}
                       className="mx-auto mb-2 "
                     />
-                    <div className="text-blue-500 text-xs font-semibold">
-                      {item.brand2}
-                    </div>
-                    <div className="text-md  text-gray-600">{item.model2}</div>
+                    <div className="brand-label">{item.brand2}</div>
+                    <div className="text-sm font-semibold  text-gray-600">{item.model2}</div>
                     <div className="font-bold text-md sm:hidden">
                       {item.price2}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="grid sm:grid-cols-12 md:grid hidden mx-2 mb-4">
-                <div className="sm:col-span-6 text-sm font-semibold">
+              <div className=" sm:grid-cols-12 md:grid hidden mx-2 mb-4">
+                <div className="sm:col-span-6 text-lg font-semibold">
                   {item.price1}
                 </div>
-                <div className="sm:col-span-6 text-sm font-semibold mx-4">
+                <div className="sm:col-span-6 text-lg font-semibold mx-4">
                   {item.price2}
                 </div>
               </div>

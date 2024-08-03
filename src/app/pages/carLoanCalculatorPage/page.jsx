@@ -3,17 +3,19 @@ import Image from "next/image";
 import Sidebar1 from "../../components/carLoanCalculatorPage/sidebar1/Sidebar1";
 import Sidebar2 from "../../components/carLoanCalculatorPage/sidebar2/Sidebar2";
 import MainSection from "../../components/carLoanCalculatorPage/mainSection/mainSection";
+import Header from "../../components/common/header/Header";
 export default function CarLoanCalculatorPage() {
   return (
-    <section className="font-gilroy">
+    <section className="">
+      {/* <Header /> */}
       <hr />
-      <div className="grid sm:grid-cols-12 py-2 px-6 sm:px-24 md:px-16  bg-slate-100">
+      <div className="grid sm:grid-cols-12 py-2  px-6 sm:px-24 md:px-16  lg:p-50">
         <div className="sm:col-span-12 flex">
           <Image
             src={"/carLoanPage/home-icon.svg"}
             alt="home-icon"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             className="cursor-pointer"
           />
           <Image
@@ -27,7 +29,7 @@ export default function CarLoanCalculatorPage() {
         </div>
       </div>
       <hr />
-      <div className="grid sm:grid-cols-12 gap-8 py-8 px-6 sm:px-24 md:px-14  lg:px-40">
+      <div className="grid sm:grid-cols-12 my-4 gap-16 px-6 sm:px-24 md:px-16  lg:p-50">
         <div className="sm:col-span-9">
           <MainSection />
         </div>

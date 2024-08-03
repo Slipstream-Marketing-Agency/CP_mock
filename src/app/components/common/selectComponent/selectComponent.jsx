@@ -3,7 +3,7 @@ import Select from "react-select";
 const customStyles = {
   control: (provided) => ({
     ...provided,
-    fontSize:"12px",
+    fontSize:"14px",
     borderColor: "#e5e7eb",
     borderRadius:"5px",
     padding:"1.5px",
@@ -14,7 +14,7 @@ const customStyles = {
   }),
   menu: (provided) => ({
     ...provided,
-    fontSize:"12px",
+    fontSize:"14px",
     zIndex: 9999,
   }),
 };

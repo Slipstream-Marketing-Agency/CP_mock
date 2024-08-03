@@ -15,7 +15,7 @@ export default function SearchComponent({
   };
   return (
     <div className="m-2">
-      <div className="text-xl font-semibold my-2">Choose {fieldValue}</div>
+      <div className="text-2xl font-semibold my-2">Choose {fieldValue}</div>
       <div className="flex gap-2">
         {data.brand && (
           <div className="flex bg-gray-300 rounded-full p-2 mb-4">
@@ -87,25 +87,25 @@ export default function SearchComponent({
         onChange={(e) => setQuery(e.target.value)}
       />
       {fieldValue === "brand" ? (
-        <ul className="grid gap-2 grid-cols-12 ">
+        <ul className="grid gap-2 grid-cols-12">
           {options
             .filter((user) => user.brand.toLowerCase().includes(query))
             .map((user) => (
               <li
                 key={user.id}
-                className="sm:col-span-2 col-span-3"
+                className="sm:col-span-2 col-span-3 flex justify-center items-center"
                 onClick={() => {
                   Formik.setFieldValue(fieldValue, user.brand),
                     Formik.setFieldValue(fieldValue2, user.image),
                     Formik.handleSubmit();
                 }}
               >
-                <div className="">
+                <div className=" flex justify-center items-center p-2">
                   <Image
                     src={user.image}
                     alt="icon-brand"
-                    width={70}
-                    height={70}
+                    width={80}
+                    height={80}
                     className="cursor-pointer"
                   />
                 </div>

@@ -1,3 +1,31 @@
 .customSelect{
     @apply bg-black m-5
+    @apply text-base;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+  }
+
+  :root {
+
+    --font-gilroy: "Gilroy", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
+    --white-color: #fff;
+    --black-color: #000;
+    --black-color2: #1d1d1d;
+    --title-color: #13141a;
+    --text-color: #5e5e5e;
+    /* --primary: #46D993; */
+    --primary: #275ba7;
+    --secondary: #24272c;
+    --light: #77cdf2;
+    --rating: #ffa236;
+    --grey: #f5f5f5;
+    --bg-color: #f7f7f7;
+    --black: #000;
+    --white: #fff;
+  }

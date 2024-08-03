@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-
+import Head from "next/head";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,7 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <link
+          rel="stylesheet"
+          as="font"
+          href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css"
+          crossOrigin="anonymous"
+        />
+      </Head>
+      <body>{children}</body>
     </html>
   );
 }

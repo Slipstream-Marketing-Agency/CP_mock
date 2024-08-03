@@ -5,11 +5,11 @@ import {carLoanPage} from"../../../mocks/labels";
 
 function Sidebar2() {
     return (
-        <div className="bg-gray-800 p-4 py-6 my-6 rounded-xl text-white text-left">
+        <div className="bg-gray-800 p-6 py-6 my-6 rounded-xl text-white text-left">
             <Image src="/sideBar-icon.svg" width={250} height={250} className="" />
-            <div className="text-lg font-medium ">{carLoanPage.carWorthSection.heading}</div>
-            <div className="text-xs font-thin my-2 text-gray-300">{carLoanPage.carWorthSection.para}</div>
-            <button className="text-sm font-medium">{carLoanPage.carWorthSection.button}  &gt;</button>
+            <div className="text-2xl font-medium ">{carLoanPage.carWorthSection.heading}</div>
+            <div className="text-base font-thin my-2 text-gray-300 leading-normal">{carLoanPage.carWorthSection.para}</div>
+            <button className="text-base font-semibold my-2">{carLoanPage.carWorthSection.button} &nbsp; - &gt;</button>
             {/* <Image src={ArrowForwardIcon} width={64} height={64} className="" /> */}
         </div>
     )

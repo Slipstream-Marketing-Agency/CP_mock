@@ -1,5 +1,5 @@
 import { carLoanPage } from "../../../mocks/labels";
-import ChooseCarDiv from "../chooseCarDiv/old/ChooseCarDiv_old";
+import ChooseCarDiv from "../chooseCarDiv/ChooseCarDiv";
 import BannerSection from "../bannerSection/bannerSection";
 import DimensionSection from "../dimensionsSection/DimensionSection";
 import ComparisonSection from "../../common/comparisonSection/ComparisonSection";
@@ -21,13 +21,18 @@ function mainSection() {
 
   return (
     <div className="">
-      <div className="text-3xl my-2">{carLoanPage.heading1}</div>
-      <div className="font-thin">{carLoanPage.para1}</div>
-      <Modal
-        modal={isOpen}
-        setIsOpen={setIsOpen}
-        setCarSelected={setCarSelected}
-      />
+      <div className="text-4xl leading-loose text-lightgray ">
+        {carLoanPage.heading1}
+      </div>
+      <div className="para text-lightgray">{carLoanPage.para1}</div>
+      {isOpen && (
+        <Modal
+          modal={isOpen}
+          setIsOpen={setIsOpen}
+          setCarSelected={setCarSelected}
+        />
+      )}
+
       {/* bannersection */}
       {carSelected ? (
         <LoanDetails setIsOpen={setIsOpen} />
@@ -39,9 +44,11 @@ function mainSection() {
         />
       )}
       {/* section2 */}
-      <div>
-        <div className="mt-14 mb-3 text-2xl">{carLoanPage.Heading2}</div>
-        <div className="grid gap-4">
+      <div className="my-16">
+        <div className="mt-14 mb-3 font-medium text-2xl  text-lightgray">
+          {carLoanPage.Heading2}
+        </div>
+        <div className="grid para gap-8">
           <p>{carLoanPage.para2}</p>
           <p>{carLoanPage.para2}</p>
           <p>{carLoanPage.para3}</p>

@@ -1,5 +1,4 @@
 "use client";
-import Select from "react-select";
 import { useFormik } from "formik";
 import SelectComponent from "../../common/selectComponent/selectComponent";
 import { useState } from "react";
@@ -108,7 +107,7 @@ function InsuranceQuote() {
       <form onSubmit={formik.handleSubmit}>
         <div className="  lg:m-0 sm:my-6 sm:p-2 text-sm">
           {/* inputs div */}
-          <div className="m-4 grid gap-6 sm:grid-cols-12">
+          <div className="grid gap-x-12 gap-6 sm:grid-cols-12">
             {/* Row1 */}
             <div className="rounded-lg sm:col-span-6 sm:block">
               <p className="input-label 4xl:text-sm ">Car Year</p>
@@ -435,7 +434,7 @@ function InsuranceQuote() {
           </div>
           {/* continue Button */}
           <button
-            className="m-4 mx-10 lg:mx-6 w-3/4  lg:w-auto  py-3 px-12 text-xs bg-blue-600 rounded-3xl sm:float-right text-white "
+            className="mt-8 mx-10 lg:mx-6 w-3/4  lg:w-auto  py-3 px-12 text-xs bg-blue-600 rounded-3xl sm:float-right text-white "
             type="submit"
           >
             Continue
@@ -514,7 +513,7 @@ function InsuranceQuote() {
     return (
       <form onSubmit={formik.handleSubmit}>
         <div className="lg:m-0 sm:my-6 sm:p-2">
-          <div className="m-4 grid gap-6 sm:grid-cols-12">
+          <div className="grid gap-x-12 gap-6 sm:grid-cols-12 ">
             {/* Row1 */}
             <div className=" rounded-lg sm:col-span-6 sm:block">
               <p className="input-label 4xl:text-sm">Nationality</p>
@@ -660,7 +659,7 @@ function InsuranceQuote() {
           </div>
 
           {/* //buttons div */}
-          <div className="m-4 gdiv gap-4 sm:grid-cols-12">
+          <div className="m-4  gap-4 sm:grid-cols-12">
             <div className=" rounded-lg sm:col-span-6 sm:block">
               <button
                 onClick={() => props.prev(formik.values)}
@@ -711,12 +710,12 @@ function InsuranceQuote() {
   return (
     <>
       <Modal modal={isOpen} setIsOpen={setIsOpen} />
-      <div className="border-2 grey-500 rounded-xl h-auto contain-content md:pb-6">
+      <div className="border rounded-xl h-auto contain-content md:p-8">
         <div className="items-center justify-between">
-          <div className="text-xl text-center mt-6">
+          <div className="text-center mt-6 text-3xl leading-tight text-lightgray">
             Get Your Insurance Quote
           </div>
-          <div className="text-xl text-center">In A Few Clicks!</div>
+          <div className="text-center font-normal text-3xl  text-lightgray">In A Few Clicks!</div>
           <Stepper step={currentStep + 1} setCurrentStep={setCurrentStep} />
           {steps[currentStep]}
         </div>

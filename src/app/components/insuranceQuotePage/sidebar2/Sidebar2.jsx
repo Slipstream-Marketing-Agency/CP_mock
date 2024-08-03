@@ -3,11 +3,11 @@ import Image from "next/image";
 
 function Sidebar2() {
     return (
-        <div className="bg-blue-600 p-4 my-2 rounded-xl text-white text-left">
-            <Image src="/sideBar-icon.svg" width={250} height={250} className="" />
-            <div className=" w-3/4 text-xl font-semibold ">Calculate Your Car Loan EMI</div>
-            <div className="text-xs font-thin my-2 opacity-80">Input your loan amount, interest rate, and loan term to get instant results.</div>
-            <button className="text-sm font-thin">Calculate now  &gt;</button>
+        <div className="bg-blue-600 p-6  rounded-xl text-white text-left">
+            <Image src="/sidebar-icon2.png" width={200} height={200} className="sm:mb-6" />
+            <div className=" w-3/4 text-2xl font-medium ">Calculate Your Car Loan EMI</div>
+            <div className=" text-base font-thin my-3 text-gray-300 leading-normal">Input your loan amount, interest rate, and loan term to get instant results.</div>
+            <button className=" text-base font-semibold my-2">Calculate now  &nbsp; -&gt;</button>
             {/* <Image src={ArrowForwardIcon} width={64} height={64} className="" /> */}
         </div>
     )

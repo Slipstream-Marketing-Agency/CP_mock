@@ -10,6 +10,8 @@ import fiatIcon from "../../../public/carLoanPage/choosecar-popup/fiat-icon.png"
 import vwIcon from "../../../public/carLoanPage/choosecar-popup/vw-icon.png";
 import changanIcon from "../../../public/carLoanPage/choosecar-popup/changan-icon.png";
 import toyotaIcon from "../../../public/carLoanPage/choosecar-popup/toyota-icon.png";
+import bmwM2 from "../../../public/bmw-m2.png";
+import bmw1series from "../../../public/bmw-1series.png";
 
 export const carData = {
   optionsBrand: [
@@ -319,9 +321,23 @@ export const carData = {
         { header: "Type", field: "type" },
       ],
       details: [
-        { model: "M2 Coupe M Steptronic", price: "AED 165,500", type: "Coupe" },
-        { model: "1 Series 120i", price: "AED 204,510", type: "Hatch Back" },
         {
+          image: bmwM2,
+          brand: "BMW",
+          model: "M2 Coupe M Steptronic",
+          price: "AED 165,500",
+          type: "Coupe",
+        },
+        {
+          image: bmw1series,
+          brand: "BMW",
+          model: "1 Series 120i",
+          price: "AED 204,510",
+          type: "Hatch Back",
+        },
+        {
+          image: bmw1series,
+          brand: "BMW",
           model: "2 Series Coupe M240i xDRIVE",
           price: "AED 295,000",
           type: "Coupe",
@@ -413,5 +429,91 @@ export const carData = {
         },
       ],
     },
+    Safety : {
+      sections: [
+        { header: "Front Brake", field: "frontBrake" },
+        { header: "Rear Brake", field: "rearBrake" },
+        { header: "Front Airbags", field: "frontAirbags" },
+        { header: "Rear Airbags", field: "rearAirbags" },
+        { header: "Side Airbags", field: "sideAirbags" },
+      ],
+      details: [
+        {
+          frontBrake: 4.1,
+          rearBrake: 250,
+          frontAirbags: "Yes",
+          rearAirbags: "No",
+          sideAirbags: "Yes",
+        },
+        {
+          frontBrake: 4.1,
+          rearBrake: 250,
+          frontAirbags: "Yes",
+          rearAirbags: "No",
+          sideAirbags: "Yes",
+        },
+        {
+          frontBrake: 4.1,
+          rearBrake: 250,
+          frontAirbags: "Yes",
+          rearAirbags: "No",
+          sideAirbags: "Yes",
+        },
+        {
+          frontBrake: "-",
+          rearBrake: "-",
+          frontAirbags: "-",
+          rearAirbags: "-",
+          sideAirbags: "-",
+        },
+      ],
+    },    
+    Dimension :{
+      sections: [
+        { header: "Body Type", field: "bodyType" },
+        { header: "No. Of Doors", field: "noOfDoors" },
+      ],
+      details: [
+        {
+          bodyType: "SUV",
+          noOfDoors: 4,
+        },
+        {
+          bodyType: "Sedan",
+          noOfDoors: 4,
+        },
+        {
+          bodyType: "Hatchback",
+          noOfDoors: 4,
+        },
+        {
+          bodyType: "-",
+          noOfDoors: "-",
+        },
+      ],
+    },
+    Interior_Details: {
+      sections: [
+        { header: "Leather Interior", field: "leatherInterior" },
+        { header: "Fabric Interior", field: "fabricInterior" },
+      ],
+    
+      details: [
+        {
+          leatherInterior: "Yes",
+          fabricInterior: "No",
+        },
+        {
+          leatherInterior: "Yes",
+          fabricInterior: "No",
+        },
+        {
+          leatherInterior: "Yes",
+          fabricInterior: "No",
+        },
+      ],
+    },
+    
+    
   },
 };

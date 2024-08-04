@@ -5,6 +5,7 @@ import SelectedCarsDiv from "../../components/compareCarsPage/selectedCarsDiv/Se
 import DetailsDiv from "../../components/compareCarsPage/detailsDiv/DetailsDiv";
 import ComparisonSection from "../../components/common/comparisonSection/ComparisonSection";
 import DimensionSection from "../../components/carLoanCalculatorPage/dimensionsSection/DimensionSection";
+import FrequentlySearched from "../../components/carLoanCalculatorPage/frequentlySearched/FrequentlySearched";
 import { carData } from "../../mocks/mock";
 function compareCars() {
   const basicInformationSections = ["Model", "Price", "Type"];
@@ -41,10 +42,12 @@ function compareCars() {
             <Sidebar />
           </div>
           <div className="sm:col-span-10">
-            <SelectedCarsDiv />
+            <SelectedCarsDiv
+              data={carData.compareCarsDetails.BasicInformation.details}
+            />
           </div>
         </section>
-        <section>
+        <section className="">
           <DetailsDiv
             heading={"Basic Information"}
             sections={basicInformationSections}
@@ -62,13 +65,30 @@ function compareCars() {
             heading={"Performance"}
             data={carData.compareCarsDetails.performance}
           />
-        </section>
-        <section className="px-52">
-            <DimensionSection />
+          <DetailsDiv
+            heading={"Safety"}
+            data={carData.compareCarsDetails.Safety}
+          />
+          <DetailsDiv
+            heading={"Dimension"}
+            data={carData.compareCarsDetails.Dimension}
+          />
+          <DetailsDiv
+            heading={"Interior Details"}
+            data={carData.compareCarsDetails.Interior_Details}
+          />
         </section>
         <section className="sm:px-52 px-6 my-4">
-        <ComparisonSection />
-
+          <DimensionSection />
+        </section>
+        <section className="sm:px-52 px-6 my-4">
+          <ComparisonSection />
+        </section>
+        <section className="sm:px-52 px-6 my-4">
+          <FrequentlySearched />
+        </section>
+        <section className="sm:px-52 px-6 my-4">
+          <DimensionSection />
         </section>
       </section>
     </>

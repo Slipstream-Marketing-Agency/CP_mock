@@ -62,7 +62,6 @@ body {
     @apply border border-gray-200 rounded-md p-2.5 w-full text-sm;
   }
   .diagonal-stripes {
-
     /* background: linear-gradient(
       45deg,
       rgb(33, 12, 223) 0%,
@@ -75,7 +74,19 @@ body {
     );
     background-size: 40px 40px;  */
   }
-
+  .bg-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.1) 3px,
+      rgba(0, 0, 0, 0.1) 10px
+      /* rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2) 10px,
+      transparent 10px,
+      transparent 20px */
+    );
+  }
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -98,7 +109,7 @@ body {
 
   /*comparison, cardetail */
   .brand-label {
-    @apply text-button-bg text-sm font-semibold tracking-widest ;
+    @apply text-button-bg text-sm font-semibold tracking-widest;
   }
   .model-label {
     @apply text-lg font-semibold my-1 text-gray-600;
@@ -107,5 +118,4 @@ body {
   .model-label-comparison {
     @apply text-lg font-semibold my-1 text-gray-600;
   }
-
 }

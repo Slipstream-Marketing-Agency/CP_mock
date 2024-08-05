@@ -387,6 +387,16 @@ export const carData = {
           transmission: "Automatic",
           gears: "8-speed",
         },
+        {
+          cylinders: '-',
+          displacement: '-',
+          power: '-',
+          torque: '-',
+          fuelType: "-",
+          drive: "-",
+          transmission: "-",
+          gears: "-",
+        },
       ],
     },
     FuelEfficiency: {
@@ -407,6 +417,11 @@ export const carData = {
           fuelTank: 13,
           consumption: 14.0,
         },
+        {
+          fuelTank: "-",
+          consumption: "-",
+        },
+
       ],
     },
     performance: {
@@ -426,6 +441,10 @@ export const carData = {
         {
           accelaration: 4.1,
           topspeed: 250,
+        },
+        {
+          accelaration:"-",
+          topspeed: "-",
         },
       ],
     },
@@ -510,6 +529,10 @@ export const carData = {
         {
           leatherInterior: "Yes",
           fabricInterior: "No",
+        },
+        {
+          leatherInterior: "-",
+          fabricInterior: "-",
         },
       ],
     },

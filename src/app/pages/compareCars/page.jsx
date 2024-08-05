@@ -8,7 +8,6 @@ import DimensionSection from "../../components/carLoanCalculatorPage/dimensionsS
 import FrequentlySearched from "../../components/carLoanCalculatorPage/frequentlySearched/FrequentlySearched";
 import { carData } from "../../mocks/mock";
 function compareCars() {
-  const basicInformationSections = ["Model", "Price", "Type"];
   return (
     <>
       {/* <Header /> */}
@@ -37,11 +36,11 @@ function compareCars() {
           <hr />
         </section>
 
-        <section className="grid gap-6 sm:grid-cols-12 px-6 sm:px-24 md:px-16  lg:px-52 mt-8">
+        <section className="grid gap-6 sm:grid-cols-10 px-6 sm:px-24 md:px-16  lg:px-52 mt-8">
           <div className="sm:col-span-2">
             <Sidebar />
           </div>
-          <div className="sm:col-span-10">
+          <div className="sm:col-span-8">
             <SelectedCarsDiv
               data={carData.compareCarsDetails.BasicInformation.details}
             />
@@ -50,7 +49,6 @@ function compareCars() {
         <section className="">
           <DetailsDiv
             heading={"Basic Information"}
-            sections={basicInformationSections}
             data={carData.compareCarsDetails.BasicInformation}
           />
           <DetailsDiv

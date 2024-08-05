@@ -9,7 +9,7 @@ function DetailsDiv({ heading, data }) {
       <hr />
       <div className=" bg-gray-50 px-6 sm:px-24 md:px-16  lg:px-52">
         {/* lgscreenUI */}
-        <div className="hidden sm:grid gap-4 grid-cols-12 ">
+        <div className="hidden sm:grid gap-6 grid-cols-10 ">
           <div className="col-span-2">
             {data.sections.map((sections, index) => (
               <div key={index} className="text-base font-bold sm:py-10">
@@ -18,7 +18,7 @@ function DetailsDiv({ heading, data }) {
             ))}
           </div>
           {data.details.map((value, index) => (
-            <div key={index} className="col-span-2 ">
+            <div key={index} className="col-span-2">
               {data.sections.map((columns) => (
                 <div
                   className={`py-10 flex gap-2 ${

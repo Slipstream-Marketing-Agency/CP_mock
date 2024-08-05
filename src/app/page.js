@@ -12,6 +12,9 @@ export default function Home() {
       <Link className="" href="/pages/compareCars">
         Compare Cars
       </Link>
+      <Link className="" href="/pages/news-reviews-page">
+        News & Reviews
+      </Link>
     </main>
   );
 }

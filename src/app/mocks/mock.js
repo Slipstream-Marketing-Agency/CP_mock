@@ -12,6 +12,14 @@ import changanIcon from "../../../public/carLoanPage/choosecar-popup/changan-ico
 import toyotaIcon from "../../../public/carLoanPage/choosecar-popup/toyota-icon.png";
 import bmwM2 from "../../../public/bmw-m2.png";
 import bmw1series from "../../../public/bmw-1series.png";
+import newsImage1 from "../../../public/news-image1.png";
+import newsImage2 from "../../../public/news-image2.png";
+import newsImage3 from "../../../public/news-image3.png";
+import newsImage4 from "../../../public/news-image4.png";
+import newsImage5 from "../../../public/news-image5.png";
+import newsImage6 from "../../../public/news-image6.png";
+import articleImage1 from "../../../public/newspage-articles-image1.png";
+import articleImage2 from "../../../public/newspage-articles-image2.png";
 
 export const carData = {
   optionsBrand: [
@@ -414,10 +422,10 @@ export const carData = {
           gears: "8-speed",
         },
         {
-          cylinders: '-',
-          displacement: '-',
-          power: '-',
-          torque: '-',
+          cylinders: "-",
+          displacement: "-",
+          power: "-",
+          torque: "-",
           fuelType: "-",
           drive: "-",
           transmission: "-",
@@ -447,7 +455,6 @@ export const carData = {
           fuelTank: "-",
           consumption: "-",
         },
-
       ],
     },
     performance: {
@@ -469,12 +476,12 @@ export const carData = {
           topspeed: 250,
         },
         {
-          accelaration:"-",
+          accelaration: "-",
           topspeed: "-",
         },
       ],
     },
-    Safety : {
+    Safety: {
       sections: [
         { header: "Front Brake", field: "frontBrake" },
         { header: "Rear Brake", field: "rearBrake" },
@@ -512,8 +519,8 @@ export const carData = {
           sideAirbags: "-",
         },
       ],
-    },    
-    Dimension :{
+    },
+    Dimension: {
       sections: [
         { header: "Body Type", field: "bodyType" },
         { header: "No. Of Doors", field: "noOfDoors" },
@@ -542,7 +549,7 @@ export const carData = {
         { header: "Leather Interior", field: "leatherInterior" },
         { header: "Fabric Interior", field: "fabricInterior" },
       ],
-    
+
       details: [
         {
           leatherInterior: "Yes",
@@ -562,7 +569,101 @@ export const carData = {
         },
       ],
     },
-    
-    
   },
+  NewsReviewsSection: [
+    {
+      title: "All-New Geely Starry Launched In UAE At AED 84,900!",
+      category: "Trending",
+      date: "June 28, 2018",
+      source: "CarPrices.ae",
+      description:
+        "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage1,
+      link: "#",
+    },
+    {
+      title: "Lamborghini Huracan STJ Pays Homage To The Huracan Line-Up!",
+      category: "Trending",
+      date: "Feb 28, 2020",
+      source: "CarPrices.ae",
+      description:
+        "Aenean2 eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage2,
+      link: "#",
+    },
+    {
+      title: "Lamborghini Huracan STJ Pays Homage To The Huracan Line-Up!",
+      category: "Trending",
+      date: "March 10, 2018",
+      source: "CarPrices.ae",
+      description:
+        "Aenean3 eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage3,
+      link: "#",
+    },
+    {
+      title: "Lamborghini Huracan STJ Pays Homage To The Huracan Line-Up!",
+      category: "Trending",
+      date: "August 07, 2022",
+      source: "CarPrices.ae",
+      description:
+        "Aenean4 eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage4,
+      link: "#",
+    },
+    {
+      title: "Lamborghini Huracan STJ Pays Homage To The Huracan Line-Up!",
+      category: "Trending",
+      date: "Jan 10, 2024",
+      source: "CarPrices.ae",
+      description:
+        "Aenean5 eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage5,
+      link: "#",
+    },
+    {
+      title: "Lamborghini Huracan STJ Pays Homage To The Huracan Line-Up!",
+      category: "Trending",
+      date: "June 28, 2022",
+      source: "CarPrices.ae",
+      description:
+        "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim.",
+      image: newsImage6,
+      link: "#",
+    },
+  ],
+  popularTags: [
+    "MercedesBenz",
+    "Electric Cars",
+    "G-class",
+    "G-Wagon",
+    "UAE",
+    "Offers",
+    "New",
+    "Petrol",
+    "Audi",
+    "Automatic",
+    "Toyota",
+    "Latest",
+    "BMW",
+    "Toyota",
+  ],
+  articles: [
+    {
+      title: "Ten Pros of Applying Car Paint Protection Film (PPF)",
+      image: articleImage1,
+    },
+    {
+      title: "Lancia Returns To Rally With The Ypsilon Rally 4 H...",
+      image: articleImage2,
+    },
+    {
+      title: "Ten Pros of Applying Car Paint Protection Film (PPF)",
+      image: articleImage1,
+    },
+    {
+      title: "Lancia Returns To Rally With The Ypsilon Rally 4 H...",
+      image: articleImage2,
+    },
+  ],
 };

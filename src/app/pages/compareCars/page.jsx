@@ -36,13 +36,13 @@ function compareCars() {
           <hr />
         </section>
 
-        <section className="grid gap-6 sm:grid-cols-10 px-6 sm:px-24 md:px-16  lg:px-52 mt-8">
+        <section className="grid  sm:grid-cols-10 px-6 sm:px-24 md:px-16  lg:px-52 mt-8">
           <div className="sm:col-span-2">
             <Sidebar />
           </div>
           <div className="sm:col-span-8">
             <SelectedCarsDiv
-              data={carData.compareCarsDetails.BasicInformation.details}
+              data={carData.compareCarsDetails.cars}
             />
           </div>
         </section>

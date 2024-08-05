@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Modal from "../../carLoanCalculatorPage/modal/Modal";
+import CloseIcon from '@mui/icons-material/Close';
 export default function SelectedCarsDiv({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -23,9 +24,7 @@ export default function SelectedCarsDiv({ data }) {
                 />
                 <div className="text-base">Change Car</div>
               </div>
-              <button className="font-semibold text-lg cursor-pointer">
-                X
-              </button>
+              <CloseIcon className="cursor-pointer"/>
             </div>
             <Image
               src={car.image}

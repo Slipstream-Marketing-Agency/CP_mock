@@ -1,4 +1,5 @@
 import FormikSearchComponent from "../SearchComponent/FormikSearchComponent";
+import Close from "@mui/icons-material/Close";
 function Modal({ modal, setIsOpen, setCarSelected }) {
   return (
     <>
@@ -13,7 +14,7 @@ function Modal({ modal, setIsOpen, setCarSelected }) {
                   className=" sm:col-span-1 sm:block cursor-pointer "
                   onClick={() => setIsOpen(false)}
                 >
-                  X
+                  <Close fontSize="large"/>
                 </div>
               </div>
 {/* 

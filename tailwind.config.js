@@ -32,6 +32,8 @@ module.exports = {
         "lightgray": "#3C4242",
         "greyTwo":"#EFEFEF",
         "greyThree":"#F3F2FA",
+        "tablegrey1":"#F9F9F9",
+        "tablegrey2":"#FDFDFD",
         // "blackGradient":"#1E1E1E",
       },
       screens: {

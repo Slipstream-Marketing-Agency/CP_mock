@@ -314,6 +314,29 @@ export const carData = {
     },
   ],
   compareCarsDetails: {
+    cars: [
+      {
+        image: bmwM2,
+        brand: "BMW",
+        model: "M2 Coupe M Steptronic",
+        price: "AED 165,500",
+        type: "Coupe",
+      },
+      {
+        image: bmw1series,
+        brand: "BMW",
+        model: "1 Series 120i",
+        price: "AED 204,510",
+        type: "Hatch Back",
+      },
+      {
+        image: bmw1series,
+        brand: "BMW",
+        model: "2 Series Coupe M240i xDRIVE",
+        price: "AED 295,000",
+        type: "Coupe",
+      },
+    ],
     BasicInformation: {
       sections: [
         { header: "Model", field: "model" },
@@ -322,25 +345,28 @@ export const carData = {
       ],
       details: [
         {
-          image: bmwM2,
           brand: "BMW",
           model: "M2 Coupe M Steptronic",
           price: "AED 165,500",
           type: "Coupe",
         },
         {
-          image: bmw1series,
           brand: "BMW",
           model: "1 Series 120i",
           price: "AED 204,510",
           type: "Hatch Back",
         },
         {
-          image: bmw1series,
           brand: "BMW",
           model: "2 Series Coupe M240i xDRIVE",
           price: "AED 295,000",
           type: "Coupe",
+        },
+        {
+          brand: "-",
+          model: "-",
+          price: "-",
+          type: "-",
         },
       ],
     },

@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Close from "@mui/icons-material/Close";
 function Modal({ modal, setIsOpen }) {
   return (
     <>
       {modal && (
-        <dialog className="fixed sm:left-4 top-0 w-full h-full bg-black bg-opacity-20 z-10 overflow-auto backdrop-blur flex justify-center items-center">
+        <dialog className="fixed sm:left-0 top-0 w-full h-full bg-black bg-opacity-20 z-10 overflow-auto backdrop-blur flex justify-center items-center">
           <div className="bg-white rounded-md md:w-1/4 w-3/4 p-5">
             <div className=" grid grid-cols-12">
               <div className="sm:col-span-2 sm:block hidden bg-green-200 rounded-full w-12 h-12 align-middle">
@@ -31,7 +32,7 @@ function Modal({ modal, setIsOpen }) {
                 className=" col-span-1 cursor-pointer mx-auto text-sm "
                 onClick={() => setIsOpen(false)}
               >
-                X
+                <Close fontSize="small" />
               </div>
             </div>
           </div>

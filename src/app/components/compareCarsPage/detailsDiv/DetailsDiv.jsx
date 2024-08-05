@@ -7,23 +7,29 @@ function DetailsDiv({ heading, data }) {
         {heading}
       </div>
       <hr />
-      <div className=" bg-gray-50 px-6 sm:px-24 md:px-16  lg:px-52">
+      <div className="  px-6 sm:px-24 md:px-16  lg:px-52 bg-gray-50">
         {/* lgscreenUI */}
-        <div className="hidden sm:grid gap-6 grid-cols-10 ">
+        <div className="hidden sm:grid grid-cols-10">
           <div className="col-span-2">
             {data.sections.map((sections, index) => (
-              <div key={index} className="text-base font-bold sm:py-10">
+              <div
+                key={index}
+                // className="text-base font-bold sm:py-10"
+                className={`text-base font-bold sm:py-10 ${
+                  index % 2 === 0 ? "bg-tablegrey1 " : "bg-tablegrey2"
+                }`}
+              >
                 {sections.header}
               </div>
             ))}
           </div>
           {data.details.map((value, index) => (
             <div key={index} className="col-span-2">
-              {data.sections.map((columns) => (
+              {data.sections.map((columns, colIndex) => (
                 <div
-                  className={`py-10 flex gap-2 ${
+                  className={`py-10 flex gap-2 col-span-2 text-base sm:py-10 ${
                     columns.field === "model" ? "font-semibold" : ""
-                  }`}
+                  } ${colIndex % 2 === 0 ? "bg-tablegrey1 " : "bg-tablegrey2"}`}
                 >
                   <div
                     className={` ${
@@ -59,11 +65,7 @@ function DetailsDiv({ heading, data }) {
         {/* mobile UI */}
         <div className="sm:hidden">
           {data.sections.map((sections, index) => (
-            <div
-              className={`py-3 ${
-                index % 2 === '0' ? "bg-gray-100" : ""
-              }`}
-            >
+            <div className={`py-3 ${index % 2 === 0 ? "bg-tablegrey1 " : "bg-tablegrey2"}`}>
               <div key={index} className="text-xs font-bold text-blue-500">
                 {sections.header}
               </div>

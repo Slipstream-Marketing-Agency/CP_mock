@@ -34,14 +34,14 @@ module.exports = {
         "greyThree":"#F3F2FA",
         "tablegrey1":"#F9F9F9",
         "tablegrey2":"#FDFDFD",
-        // "blackGradient":"#1E1E1E",
+        "lightblue":"rgb(53,99,233,0.1)",
       },
       screens: {
         "4xl": "2000px",
       },
       keyframes: {
         "trans-right": {
-          "0%,50%": { transform: "translateX(1100px)" },
+          "0%,50%": { transform: "translateX(1200px)" },
           // '25%,50%':{transform: 'translateX(500px)'},
           // '100%':{transform:'translateX(0px)'}
         },

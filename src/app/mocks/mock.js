@@ -20,7 +20,6 @@ import newsImage5 from "../../../public/news-image5.png";
 import newsImage6 from "../../../public/news-image6.png";
 import articleImage1 from "../../../public/newspage-articles-image1.png";
 import articleImage2 from "../../../public/newspage-articles-image2.png";
-
 export const carData = {
   optionsBrand: [
     { value: "Benz", label: "Benz" },
@@ -239,6 +238,18 @@ export const carData = {
     "2 Series Convertible",
     "1 Series Coupe",
     "5 Series Sedan",
+    "6 Series Grand Tursimo",
+    "7 Series Sedan",
+    "8 Series Convertible",
+    "8 Series Convertible",
+    "M2 Coupe",
+    "i5",
+    "i7",
+    "i8 Roadster",
+    "8 Series Convertible",
+    "8 Series Convertible",
+    "8 Series Convertible",
+    "8 Series Convertible",
   ],
   chooseYear: ["2024", "2023", "2022", "2021"],
   chooseVariant: ["M Septronic"],

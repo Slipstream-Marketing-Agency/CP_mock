@@ -118,4 +118,22 @@ body {
   .model-label-comparison {
     @apply text-lg font-semibold my-1 text-gray-600;
   }
+  /*custom  scrollbar */
+  .custom_scrollbar {
+    @apply scrollbar-default;
+  }
+  
+  .custom_scrollbar::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0px;
+  }
+  
+  .custom_scrollbar::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+  
+  .custom_scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300;
+    height: 3rem;
+  }
 }

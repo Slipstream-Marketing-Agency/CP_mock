@@ -15,8 +15,8 @@ export default function FrequentlySearched() {
           Popular New Cars
         </div>
         <div className=" grid gap-2 sm:grid-cols-12 opacity-70 mb-8">
-          {carData?.popularNewCars?.map((cars) => (
-            <div className="sm:col-span-3 rounded-xl">{cars}</div>
+          {carData?.popularNewCars?.map((cars,index) => (
+            <div key={index} className="sm:col-span-3 rounded-xl">{cars}</div>
           ))}
         </div>
       </div>
@@ -26,8 +26,8 @@ export default function FrequentlySearched() {
        Searched Keywords
         </div>
         <div className="grid gap-2 sm:grid-cols-12 opacity-70 leading-7">
-          {carData?.searchedKeywords?.map((keywords) => (
-            <div className="">{keywords}</div>
+          {carData?.searchedKeywords?.map((keywords, index) => (
+            <div key={index} className="">{keywords}</div>
           ))}
         </div>
       </div>

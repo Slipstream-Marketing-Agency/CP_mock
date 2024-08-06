@@ -9,7 +9,7 @@ function ThisWeek() {
         <>
           <div className="flex my-2">
             <Image src={item.image} alt="image1" width={40} height={20} />
-            <div className="text-xs mx-2 my-auto text-gray-400">{item.title}</div>
+            <div className="text-sm mx-2 my-auto text-gray-400">{item.title}</div>
           </div>
           <hr />
         </>

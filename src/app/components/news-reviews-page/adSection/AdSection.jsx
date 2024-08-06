@@ -7,8 +7,6 @@ function AdSection({image}) {
     alt={"news-story-image"}
     width={0}
     height={0}
-    sizes="100vw"
-    style={{ width: "100%", height: "30%" }} // optional
   />
   )
 }

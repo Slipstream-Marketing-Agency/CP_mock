@@ -1,14 +1,14 @@
 import Image from "next/image";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-import { carData } from "../../../mocks/mock";
+import NewsFeeds from "../newsFeeds/NewsFeeds";
 function NewsReviewsSection() {
   return (
     <div className="">
-      <div className="text-3xl">News and Reviews</div>
+      <div className=" text-2xl sm:text-3xl text-lightgray sm:mb-8 sm:leading-5 ">
+        News and reviews
+      </div>
       {/* slider */}
-      <div className="relative text-center bg-blue-100 my-4 h-[300px] rounded-lg cursor-pointer">
-        <div className="bg-sad-blue-200 text-white opacity-80 rounded-e-xl absolute top-2 left-0 px-4 py-1 font-thin text-xs">
+      <div className="relative text-center bg-blue-100 my-6  rounded-lg cursor-pointer">
+        <div className="bg-sad-blue-100 text-white opacity-80 rounded-e-2xl absolute top-1 sm:top-3 4xl:top-5 4xl:px-10 4xl:py-2 4xl:text-lg left-0 px-1 sm:px-6 py-1 font-thin text-xs sm:text-base">
           Trending
         </div>
         <Image
@@ -21,30 +21,9 @@ function NewsReviewsSection() {
         />
       </div>
 
-      <div className="grid gap-4 grid-cols-3">
-        {carData.NewsReviewsSection.map((data) => (
-          <div className=" relative col-span-1  rounded-md shadow-lg">
-            <div className="bg-sad-blue-200 text-white opacity-80 rounded-e-xl absolute top-3 left-0 px-4 py-1 font-thin text-xs">
-              Trending
-            </div>
-            <Image src={data.image} alt="image" width={300} height={300} />
-            <div className="p-2">
-              <div className="text-base leading-6">{data.title}</div>
-              <div className="text-xs leading-9 text-gray-500">
-                {data.source} ----- {data.date}
-              </div>
-              <div className="text-xs font-thin leading-4 text-gray-500">
-                {data.description}
-              </div>
-              <button className="text-xs my-4">
-                Know More <ArrowForwardIcon fontSize="small" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <NewsFeeds />
       <div className="flex justify-center items-center my-10">
-        <button className="bg-black text-white rounded-full py-2 px-6 text-sm ">
+        <button className="bg-black text-white rounded-full py-3 px-8 text-sm sm:text-base cursor-pointer">
           View More
         </button>
       </div>

@@ -12,29 +12,29 @@ function NewsReviewsPage() {
     <div>
       <section>
         <hr />
-        <div className="grid sm:grid-cols-12 py-2  px-6 sm:px-24 md:px-16  lg:px-52">
-          <div className="sm:col-span-12 flex">
+        <div className="grid sm:grid-cols-12 py-2  px-6 sm:px-24 md:px-16  lg:px-40">
+          <div className="sm:col-span-12 flex items-center">
             <Image
               src={"/carLoanPage/home-icon.svg"}
               alt="home-icon"
-              width={25}
-              height={25}
+              width={20}
+              height={20}
               className="cursor-pointer"
             />
             <Image
               src={"/carLoanPage/arrow-right.svg"}
               alt="home-icon"
-              width={8}
-              height={8}
+              width={5}
+              height={5}
               className="mx-3"
             />
-            <div className=" font-semibold">News</div>
+            <div className=" font-base text-sm text-gray-500">News</div>
           </div>
         </div>
         <hr />
       </section>
       <section>
-        <div className="sm:grid gap-8 grid-cols-4 px-3 my-6 sm:px-24 md:px-16  lg:px-52">
+        <div className="sm:grid gap-20 grid-cols-4 px-3 my-6 sm:px-24 md:px-16  lg:px-40">
           <div className="sm:col-span-3 space-y-6">
             <NewsReviewsSection />
             <Categories />

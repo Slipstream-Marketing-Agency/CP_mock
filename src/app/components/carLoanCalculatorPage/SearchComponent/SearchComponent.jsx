@@ -15,7 +15,7 @@ export default function SearchComponent({
   };
   return (
     <div className="m-2">
-      <div className="text-2xl font-semibold my-2">Choose {fieldValue}</div>
+      <div className="text-2xl font-semibold my-2 capitalize">Choose {fieldValue}</div>
       <div className="flex gap-2">
         {data.brand && (
           <div className="flex bg-gray-300 rounded-full p-2 mb-4">

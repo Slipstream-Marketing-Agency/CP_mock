@@ -20,6 +20,27 @@ import newsImage5 from "../../../public/news-image5.png";
 import newsImage6 from "../../../public/news-image6.png";
 import articleImage1 from "../../../public/newspage-articles-image1.png";
 import articleImage2 from "../../../public/newspage-articles-image2.png";
+import image1 from "../../../public/newsDetailsPage/image1.png";
+import image2 from "../../../public/newsDetailsPage/image2.png";
+import image3 from "../../../public/newsDetailsPage/image3.png";
+import image4 from "../../../public/newsDetailsPage/image4.png";
+import image5 from "../../../public/newsDetailsPage/image5.png";
+import adUnihostImage from "../../../public/newsDetailsPage/ad-unihost.png";
+import adSummerImage from "../../../public/newsDetailsPage/ad-summer.png";
+import adSamsungImage from "../../../public/newsDetailsPage/ad-samsung.png";
+import adSidebar1 from "../../../public/newspage-sidebar-ad1.png";
+import adSidebar2 from "../../../public/newspage-sidebar-ad2.png";
+import convertible from "../../../public/newsDetailsPage/convertible.png";
+import coupe from "../../../public/newsDetailsPage/coupe.png";
+import hatchback from "../../../public/newsDetailsPage/hatchback.png";
+import suv from "../../../public/newsDetailsPage/SUV.png";
+import midsizesuv from "../../../public/newsDetailsPage/midsizesuv.png";
+import pickup from "../../../public/newsDetailsPage/pickup.png";
+import sedan from "../../../public/newsDetailsPage/sedan.png";
+import sports from "../../../public/newsDetailsPage/sports.png";
+import fullsizesuv from "../../../public/newsDetailsPage/fullsizesuv.png";
+import van from "../../../public/newsDetailsPage/van.png";
+
 export const carData = {
   optionsBrand: [
     { value: "Benz", label: "Benz" },
@@ -678,4 +699,46 @@ export const carData = {
       image: articleImage2,
     },
   ],
+  NewsDetailsPage: {
+    source:"CarPrices.ae team",
+    date:"March 31,2024",
+    time:"6 min",
+    image1: image1,
+    image2: image2,
+    image3: image3,
+    image4: image4,
+    image5: image5,
+    adSamsungImage: adSamsungImage,
+    adSummerImage: adSummerImage,
+    adUnihostImage: adUnihostImage,
+    adSidebar1: adSidebar1,
+    adSidebar2: adSidebar2,
+    title: "All-New Geely Starray Launched in UAE at AED 84,900 !",
+    source: "carPrices.ae",
+    date: "March 31,2024",
+    time: "6 min",
+    para1:
+      "In a bold move towards innovation and luxury, AGMC, the official distributor of Geely vehicles in the UAE, has announced the arrival of the highly anticipated 2024 Geely Starray, launched at AED 84,900. This futuristic SUV is poised to redefine the automotive landscape in the UAE, seamlessly blending luxury, technology, and chic modern design to create a truly unparalleled driving experience.",
+    para2:
+      "The all-new Geely Starray SUV in the UAE is a testament to the brand's commitment to pushing boundaries and redefining automotive excellence. From its bold front fascia, which draws inspiration from celestial elements, to its eye-catching taillights, every aspect of the Starray's design has been meticulously crafted to captivate and inspire.",
+    para3:
+      "At the heart of the Geely Starray lies a powerful 2.0T Drive-E four-cylinder engine, delivering a robust output of 218hp and 325Nm of torque. Paired with a hyper-efficient 7DCT Transmission boasting 98% efficiency and lightning-fast 0.2-second shifts, the Starray promises an exhilarating driving experience like no other.",
+    para4:
+      "The Geely Starray is equipped with the industry's most advanced performance and safety technologies, ensuring both driver and passenger confidence on every journey. Features such as Adaptive Cruise Control, Lane Departure Warning, and Automatic Emergency Braking work seamlessly together to provide a safe and secure driving experience.",
+    para5:
+      "Step inside the new Starray, and you're greeted by a world of luxury and comfort. Plush interiors, including spacious cabin space and avant-garde brown leather seats, combine with cutting-edge technology to create a truly immersive driving environment. The 13.2-inch infotainment system keeps you connected on the go, while the 8 INFINITY speakers provide an unparalleled audio experience.",
+    bodyType: [
+      { image: convertible, type: "Convertible" },
+      { image: coupe, type: "Coupe" },
+      { image: hatchback, type: "hatchback" },
+      { image: convertible, type: "Convertible" },
+      { image: midsizesuv, type: "Midize SUV" },
+      { image: pickup, type: "Pickup" },
+      { image: sedan, type: "Sedan" },
+      { image: sports, type: "SportsCar" },
+      { image: fullsizesuv, type: "Full size SUV" },
+      { image: van, type: "Van" },
+
+    ],
+  },
 };

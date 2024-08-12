@@ -5,15 +5,15 @@ import DetailsSection from "../detailsSection/DetailsSection";
 function MainSection() {
   return (
     <div className="">
-      <div className="capitalize  font-bold text-xl sm:text-5xl sm:w-2/3">
+      <div className="capitalize  font-bold text-xl sm:text-4xl">
         All-New Geely Starray Launched in UAE at AED 84,900 !
       </div>
       <div className="flex justify-between items-center my-2 sm:my-4 ">
-        <div className=" text-gray-400 text-xs sm:text-lg sm:w-2/3">
+        <div className=" text-gray-400 text-xs sm:text-base sm:w-2/3">
           {carData.NewsDetailsPage.source} | {carData.NewsDetailsPage.date} | {carData.NewsDetailsPage.time} read
         </div>
         <div className="sm:mr-6">
-          <span className="hidden text-lg sm:inline-block">Share</span> <ShareOutlinedIcon  className="sm:text-gray-300 sm:text-2xl text-lg" />
+          <span className="hidden text-base sm:inline-block">Share</span> <ShareOutlinedIcon  className="sm:text-gray-300 sm:text-2xl text-lg" />
         </div>
       </div>
       <DetailsSection
